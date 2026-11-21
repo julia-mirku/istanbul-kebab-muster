@@ -615,12 +615,18 @@ footer b{color:var(--flour)}
     oven.classList.remove('puff'); void oven.offsetWidth; oven.classList.add('puff'); }
   oven.addEventListener('mouseenter',puff); oven.addEventListener('click',puff);
   var root=document.documentElement,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  setTimeout(function(){root.classList.add('go')},40);
-  setTimeout(function(){root.classList.add('baked')},reduce?0:2300);
-  setTimeout(function(){root.classList.add('ready')},reduce?0:3000);
-  var stp=document.getElementById('steps');
-  setTimeout(function(){stp.classList.add('lit')},reduce?0:2600);
-  setTimeout(function(){stp.classList.add('settled')},reduce?0:4600);
+  // Backen startet erst, wenn das Brotbild geladen ist (langsames Netz)
+  var stp=document.getElementById('steps'),loaf=document.querySelector('.loaf'),started=false;
+  function startBake(){
+    if(started) return; started=true;
+    setTimeout(function(){root.classList.add('go')},40);
+    setTimeout(function(){root.classList.add('baked')},reduce?0:2400);
+    setTimeout(function(){root.classList.add('ready')},reduce?0:3000);
+    setTimeout(function(){stp.classList.add('lit')},reduce?0:2600);
+    setTimeout(function(){stp.classList.add('settled')},reduce?0:4600);
+  }
+  if(loaf.complete&&loaf.naturalWidth) startBake();
+  else{ loaf.addEventListener('load',startBake); loaf.addEventListener('error',startBake); setTimeout(startBake,4000); }
 
   // Reveal – einmal, auch bei schnellem Scrollen
   var rv=[].slice.call(document.querySelectorAll('.rv, #week, .rating'));
