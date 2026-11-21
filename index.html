@@ -635,16 +635,17 @@ footer{background:var(--tile);padding:40px 0 0}
   setTimeout(function(){root.classList.add('ready')},reduce?0:900);
   var small=window.matchMedia('(max-width:620px)').matches&&!window.matchMedia('(orientation:landscape) and (max-height:520px)').matches;
   var base='video/brot_'+(small?'hoch':'quer');
-  vid.poster=base+'.jpg';
+  var VER='?v=5';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
+  vid.poster=base+'.jpg'+VER;
   var conn=navigator.connection||{},save=!!conn.saveData;
   function tryPlay(){ var p=vid.play(); if(p&&p.catch) p.catch(function(){finish()}); }
   vid.addEventListener('ended',finish);
   vid.addEventListener('error',finish);
   // Noch einmal ansehen: Antippen spielt den Film von vorn (erst wenn er fertig ist)
   vid.addEventListener('click',function(){ if(vid.ended||(vid.paused&&done)){ try{vid.currentTime=0}catch(e){} tryPlay(); } });
-  if(reduce||save){ finish(); vid.preload='none'; vid.src=base+'.mp4'; }
+  if(reduce||save){ finish(); vid.preload='none'; vid.src=base+'.mp4'+VER; }
   else{
-    vid.preload='auto'; vid.src=base+'.mp4';
+    vid.preload='auto'; vid.src=base+'.mp4'+VER;
     vid.addEventListener('canplaythrough',tryPlay,{once:true});
     setTimeout(function(){ if(vid.paused&&!vid.ended) finish(); },12000);
   }
