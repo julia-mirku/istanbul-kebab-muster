@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="de" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google" content="notranslate">
+<meta name="robots" content="noindex, nofollow">
+<title>Istanbul Kebap – Rapperswil</title>
+<meta name="description" content="Istanbul Kebap, Halsgasse 28, 8640 Rapperswil-Jona. Döner im hausgemachten Brot, Dürüm, Pide. Tel. 055 210 70 05.">
+<meta name="theme-color" content="#1E1815">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..800,100&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coal:#1E1815; --coal-2:#2A211C; --coal-3:#3A2E27;
+  --ember:#E2572B; --flame:#F3A33A; --crust:#C9822F; --crust-dk:#8E4F1E;
+  --flour:#FFF7EC; --paper:#FFFFFF; --paper-2:#F4F0EA; --line:#E4DDD3;
+  --ink:#1E1815; --muted:#6B5E55; --pepper:#3E7B47; --pepper-bg:#E6F1E7;
+  --glow:rgba(243,163,58,.28);
+  --r:14px;
+  --f-d:"Fraunces", Georgia, serif;
+  --f-t:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-t);font-size:17px;line-height:1.55;font-variant-numeric:tabular-nums}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+@media (max-width:360px){.wrap{padding:0 16px}}
+
+/* ---------- Kopfleiste ---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(30,24,21,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--flour);border-bottom:1px solid rgba(255,247,236,.08)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:58px}
+.brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;margin-right:auto;min-width:0}
+.brand b{font-family:var(--f-d);font-weight:800;font-size:23px;letter-spacing:.01em;font-variation-settings:"SOFT" 100}
+.brand span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#CDBBA8;white-space:nowrap}
+.lang{display:flex;border:1px solid rgba(255,247,236,.22);border-radius:999px;padding:3px}
+.lang button{all:unset;cursor:pointer;width:38px;text-align:center;font-size:13px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:5px 0;color:#CDBBA8}
+.lang button[aria-pressed="true"]{background:var(--flour);color:var(--coal)}
+.callbtn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--ember);color:#fff;font-weight:700;border-radius:999px;padding:9px 16px;font-size:15px;white-space:nowrap}
+.callbtn svg{width:17px;height:17px}
+@media (max-width:620px){.brand span{display:none}.callbtn .num{display:none}.callbtn{padding:9px 12px}}
+
+/* ---------- Ofen / Hero ---------- */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(120% 70% at 70% 118%, rgba(226,87,43,.42), rgba(226,87,43,0) 60%),
+  radial-gradient(60% 50% at 72% 60%, rgba(243,163,58,.10), rgba(0,0,0,0) 70%),
+  var(--coal);color:var(--flour)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px, transparent 1.2px);background-size:7px 7px}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:28px;padding-top:44px;padding-bottom:52px}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--flame)}
+.kicker i{width:22px;height:2px;background:var(--flame);border-radius:2px}
+h1{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100,"opsz" 120;font-size:clamp(38px,5.4vw,68px);line-height:1.02;letter-spacing:-.015em;margin:14px 0 16px}
+h1 em{font-style:normal;color:var(--flame)}
+.lede{font-size:18.5px;color:#E7D9C8;max-width:30em;margin:0 0 24px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:176px;text-decoration:none;font-weight:700;font-size:17px;border-radius:12px;padding:15px 20px;transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-call{background:var(--ember);color:#fff;box-shadow:0 6px 22px rgba(226,87,43,.35)}
+.btn-route{background:rgba(255,247,236,.08);color:var(--flour);border:1.5px solid rgba(255,247,236,.28)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;font-size:15px;color:#D9C8B6}
+.gchip{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600}
+.gchip .st{color:var(--flame);letter-spacing:1px}
+.gchip b{color:#fff}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.status .dot{width:9px;height:9px;border-radius:50%;background:#9A8B7E}
+.status.open .dot{background:#6FCB7B;box-shadow:0 0 0 4px rgba(111,203,123,.18)}
+
+.oven{position:relative;aspect-ratio:600/430;width:100%;max-width:640px;justify-self:end}
+.oven svg{width:100%;height:100%;overflow:visible}
+.oven .tag{position:absolute;left:6%;bottom:2%;font-family:var(--f-d);font-weight:700;font-variation-settings:"SOFT" 100;font-size:clamp(15px,1.6vw,19px);color:var(--flour);background:rgba(30,24,21,.72);border:1px solid rgba(255,247,236,.16);border-radius:999px;padding:7px 15px;opacity:0;transform:translateY(6px);transition:opacity .5s ease, transform .5s ease}
+.baked .oven .tag{opacity:1;transform:none}
+
+/* Brot-Animation: einmal, ~2.6 s */
+#dough{transform-origin:300px 230px;transform:scale(.94,.9)}
+#crust,#score,#shine{opacity:0}
+.seed{opacity:0}
+.steam path{stroke-dasharray:160;stroke-dashoffset:160;opacity:0}
+.go #dough{animation:rise 2.2s cubic-bezier(.3,.7,.3,1) forwards}
+.go #crust{animation:bake 2.2s ease-in-out .15s forwards}
+.go #score{animation:fade .9s ease 1.2s forwards}
+.go #shine{animation:fade .8s ease 1.8s forwards}
+.go .seed{animation:seed .5s cubic-bezier(.2,.8,.3,1.2) forwards}
+.go .steam path{animation:steam 2.4s ease-out forwards}
+/* Endzustand auch ohne laufende Animation */
+.baked #dough{transform:none}.baked #crust,.baked #score,.baked #shine,.baked .seed{opacity:1}
+@keyframes rise{to{transform:scale(1,1)}}
+@keyframes bake{0%{opacity:0}60%{opacity:.85}100%{opacity:1}}
+@keyframes fade{to{opacity:1}}
+@keyframes seed{0%{opacity:0;transform:translateY(-14px)}100%{opacity:1;transform:none}}
+@keyframes steam{0%{opacity:0;stroke-dashoffset:160}25%{opacity:.55}100%{opacity:0;stroke-dashoffset:0}}
+
+/* Hover erst nach Animation */
+.ready .btn-call:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(226,87,43,.5)}
+.ready .btn-route:hover{background:rgba(255,247,236,.16)}
+.ready .callbtn:hover{background:#ED6A3E}
+.oven svg{transition:transform .6s ease}
+.ready .oven:hover svg{transform:scale(1.02) rotate(-.6deg)}
+.ready .gchip:hover b{text-decoration:underline;text-underline-offset:3px}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:6px;padding-top:18px;padding-bottom:34px}
+  .oven{order:-1;justify-self:center;max-width:520px;margin:0 -6px}
+  h1{margin-top:6px}
+}
+@media (max-width:620px){
+  .lede{font-size:17px;margin-bottom:20px}
+  .actions{display:grid;grid-template-columns:1fr 1fr}
+  .btn{min-width:0;padding:15px 10px}
+}
+/* Handy quer: Brot neben den Text, nichts unnötig hoch */
+@media (orientation:landscape) and (max-height:520px){
+  .hero .wrap{grid-template-columns:1fr 1fr;padding-top:16px;padding-bottom:22px;gap:18px}
+  .oven{order:0;max-width:none}
+  h1{font-size:34px;margin:8px 0 10px}
+  .lede{font-size:15.5px;margin-bottom:14px}
+  .actions{display:flex}.btn{min-width:150px;padding:11px 14px;font-size:16px}
+}
+
+/* ---------- Sektionen ---------- */
+section{padding:72px 0}
+@media (max-width:620px){section{padding:52px 0}}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ember);margin:0 0 10px}
+h2{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:-.01em;margin:0 0 14px}
+.sub{color:var(--muted);max-width:36em;margin:0}
+
+/* Reveal: einmal, unabhängig vom Scrolltempo */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+/* ---------- Ofen-Trio ---------- */
+.trio{background:var(--paper)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.card{background:var(--paper-2);border-radius:var(--r);padding:24px 22px 22px;border:1px solid transparent;transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease}
+.card .ic{width:64px;height:64px;margin-bottom:14px}
+.card h3{font-family:var(--f-d);font-weight:700;font-variation-settings:"SOFT" 100;font-size:23px;margin:0 0 6px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.card .men{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--crust-dk);background:#F6E5CC;border-radius:999px;padding:4px 11px}
+.settled .card:hover{border-color:#E8C79A;transform:translateY(-3px);box-shadow:0 12px 28px rgba(142,79,30,.12)}
+@media (max-width:820px){.cards{grid-template-columns:1fr;gap:12px}.card{display:grid;grid-template-columns:56px 1fr;gap:0 16px;padding:18px}.card .ic{width:56px;height:56px;grid-row:span 3;margin:0}.card .men{justify-self:start;margin-top:10px}}
+
+/* ---------- Karte ---------- */
+.menu{background:var(--paper-2)}
+.menu-grid{display:grid;grid-template-columns:230px 1fr;gap:48px;margin-top:34px;align-items:start}
+.spit{position:relative;justify-self:center;width:200px}
+.spit svg{width:100%;height:auto;overflow:visible}
+.spit .layer{transition:filter .35s ease, transform .35s ease;transform-box:fill-box;transform-origin:center}
+.spit .layer.hot{filter:brightness(1.18) saturate(1.1);transform:scaleX(1.05)}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.group{background:var(--paper);border-radius:var(--r);padding:22px 22px 10px;border:1.5px solid transparent;transition:border-color .3s ease, box-shadow .3s ease}
+.group h3{display:flex;align-items:center;gap:10px;font-family:var(--f-d);font-weight:700;font-variation-settings:"SOFT" 100;font-size:22px;margin:0 0 6px}
+.group h3 .n{font-family:var(--f-t);font-size:12px;font-weight:800;color:#fff;background:var(--crust);width:22px;height:22px;border-radius:50%;display:grid;place-items:center}
+.item{padding:12px 0;border-top:1px dashed var(--line)}
+.item:first-of-type{border-top:0}
+.item .nm{font-weight:700;font-size:17px}
+.item .ds{color:var(--muted);font-size:15px;margin-top:2px}
+.item .star{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pepper);background:var(--pepper-bg);border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+.settled .group:hover{border-color:#E8C79A;box-shadow:0 10px 26px rgba(142,79,30,.10)}
+.pricenote{display:flex;gap:12px;align-items:flex-start;margin-top:18px;background:#FFF4E2;border:1px solid #F1D7AE;border-radius:12px;padding:14px 16px;font-size:15px;color:#6A4A22}
+.pricenote b{color:#4A3014}
+@media (max-width:980px){.menu-grid{grid-template-columns:1fr;gap:0}.spit{display:none}}
+@media (max-width:700px){.groups{grid-template-columns:1fr;gap:12px}.group{padding:18px 18px 6px}}
+
+/* ---------- Zeiten ---------- */
+.hours{background:var(--paper)}
+.hours-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px}
+.pill{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:16px;border-radius:999px;padding:9px 16px;background:var(--paper-2);color:var(--muted)}
+.pill .dot{width:10px;height:10px;border-radius:50%;background:#A89A8E}
+.pill.open{background:var(--pepper-bg);color:#24532C}
+.pill.open .dot{background:var(--pepper);box-shadow:0 0 0 4px rgba(62,123,71,.16)}
+.week{margin-top:30px;display:grid;gap:8px}
+.day{display:grid;grid-template-columns:110px 1fr 150px;align-items:center;gap:16px;padding:8px 12px;border-radius:12px}
+.day .dn{font-weight:700}
+.day .tm{text-align:right;color:var(--muted);font-size:15.5px}
+.day.today{background:#FFF4E2}
+.day.today .dn::after{content:attr(data-t);display:inline-block;margin-left:8px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ember);border-radius:6px;padding:2px 6px;vertical-align:2px}
+.day.today .tm{color:var(--ink);font-weight:600}
+.track{position:relative;height:14px;background:var(--paper-2);border-radius:999px}
+.seg{position:absolute;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--crust),var(--flame));transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.3,.7,.3,1)}
+.week.in .seg{transform:scaleX(1)}
+.now{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--ink);border-radius:2px;opacity:0;transition:opacity .4s ease .8s}
+.now::before{content:"";position:absolute;top:-4px;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.week.in .now{opacity:1}
+.axis{display:grid;grid-template-columns:110px 1fr 150px;gap:16px;padding:0 12px;margin-top:2px;font-size:12.5px;color:var(--muted)}
+.axis .ticks{position:relative;height:16px}
+.axis .ticks span{position:absolute;transform:translateX(-50%)}
+.hnote{margin-top:18px;font-size:14.5px;color:var(--muted)}
+@media (max-width:700px){
+  .week{gap:4px}
+  .day{grid-template-columns:auto 1fr;gap:6px 10px;padding:9px 10px}
+  .day .track{grid-column:1/-1;grid-row:2;height:12px}
+  .day .tm{text-align:right;font-size:14.5px}
+  .axis{grid-template-columns:1fr;padding:0 10px}.axis>span{display:none}
+}
+
+/* ---------- Bewertungen ---------- */
+.rating{background:var(--coal);color:var(--flour)}
+.rating .eyebrow{color:var(--flame)}
+.rate-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.score{display:flex;align-items:center;gap:22px}
+.score .big{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;font-size:clamp(84px,10vw,128px);line-height:.9;letter-spacing:-.03em}
+.stars{position:relative;font-size:30px;letter-spacing:3px;color:rgba(255,247,236,.18);white-space:nowrap}
+.stars .fill{position:absolute;inset:0;overflow:hidden;color:var(--flame);width:0;transition:width 1.2s cubic-bezier(.3,.7,.3,1) .2s}
+.rating.in .stars .fill{width:96%}
+.score .cnt{font-size:17px;color:#D9C8B6;margin-top:6px}
+.score .cnt b{color:#fff;font-size:20px}
+.glink{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--flame);font-weight:700;text-decoration:none;border-bottom:1.5px solid rgba(243,163,58,.4);padding-bottom:2px;transition:border-color .25s ease}
+.settled .glink:hover{border-color:var(--flame)}
+.praise{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pr{background:var(--coal-2);border:1px solid rgba(255,247,236,.08);border-radius:var(--r);padding:18px 18px 16px;transition:background-color .3s ease, border-color .3s ease}
+.pr .num{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;font-size:40px;line-height:1;color:var(--flame)}
+.pr .num small{font-size:22px;margin-left:2px}
+.pr .lb{margin-top:6px;font-weight:600;color:var(--flour)}
+.settled .pr:hover{background:var(--coal-3);border-color:rgba(243,163,58,.35)}
+.src{grid-column:1/-1;font-size:13.5px;color:#A8968A;margin-top:4px}
+@media (max-width:880px){.rate-grid{grid-template-columns:1fr;gap:30px}}
+@media (max-width:360px){.pr .num{font-size:34px}.score{gap:16px}}
+
+/* ---------- Anfahrt ---------- */
+.visit{background:var(--paper)}
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:30px}
+.addr{background:var(--paper-2);border-radius:var(--r);padding:26px}
+.addr .l1{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;font-size:30px;line-height:1.1}
+.addr .l2{font-size:19px;font-weight:600;margin-top:4px}
+.addr .l3{color:var(--muted);margin-top:10px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.sbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px;border-radius:11px;padding:12px 16px;background:var(--paper);border:1.5px solid var(--line);transition:border-color .25s ease, background-color .25s ease;min-width:118px;justify-content:center}
+.sbtn svg{width:18px;height:18px}
+.sbtn.pri{background:var(--ember);color:#fff;border-color:var(--ember)}
+.settled .sbtn:hover{border-color:var(--crust)}
+.settled .sbtn.pri:hover{background:#ED6A3E}
+@media (max-width:620px){.row{display:grid;grid-template-columns:1fr 1fr}.row .sbtn.pri{grid-column:1/-1}.sbtn{min-width:0}}
+.mini{background:var(--coal);color:var(--flour);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;overflow:hidden;position:relative}
+.walkline{display:grid;gap:0}
+.walkline .pt{display:flex;align-items:center;gap:12px;font-size:17px}
+.walkline .pin{width:16px;height:16px;border-radius:50%;flex:none}
+.walkline .pin.st{border:3px solid #CDBBA8}
+.walkline .pin.go{background:var(--ember);box-shadow:0 0 0 5px rgba(226,87,43,.22)}
+.walkline .dots{margin-left:7px;border-left:2px dotted rgba(255,247,236,.45);padding:16px 0 16px 21px;color:var(--flame);font-weight:700;font-size:15px}
+.mini .cap{font-size:14px;color:#CDBBA8}
+@media (max-width:820px){.visit-grid{grid-template-columns:1fr}}
+
+/* ---------- Fuss ---------- */
+footer{background:var(--coal);color:#CDBBA8;font-size:14.5px;padding:34px 0 40px;border-top:1px solid rgba(255,247,236,.06)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between}
+footer b{color:var(--flour)}
+.rose{display:inline-flex;align-items:center;gap:8px}
+.rose svg{width:20px;height:20px}
+.draft{font-size:12.5px;color:#8F7F73}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#start"><b>Istanbul</b><span data-i18n="brandsub">Kebap · Rapperswil</span></a>
+    <div class="lang" role="group" aria-label="Sprache">
+      <button type="button" data-lang="de" aria-pressed="true">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="callbtn" href="tel:+41552107005" aria-label="055 210 70 05">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+      <span class="num">055 210 70 05</span>
+    </a>
+  </div>
+</header>
+
+<main>
+<!-- ===== Ofen ===== -->
+<section class="hero" id="start" style="padding:0">
+  <div class="wrap">
+    <div class="htxt">
+      <div class="kicker"><i></i><span data-i18n="kicker">Halsgasse 28 · Altstadt</span></div>
+      <h1 data-i18n-html="h1">Döner im Brot, <em>das wir selbst backen.</em></h1>
+      <p class="lede" data-i18n="lede">Unser Taschenbrot kommt jeden Tag frisch aus dem eigenen Ofen. Dazu Fleisch vom Spiess, frisches Gemüse, Dürüm und Pide.</p>
+      <div class="actions">
+        <a class="btn btn-call" href="tel:+41552107005"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span data-i18n="call">Anrufen</span></a>
+        <a class="btn btn-route" href="https://www.google.com/maps/dir/?api=1&destination=Istanbul+Kebap%2C+Halsgasse+28%2C+8640+Rapperswil-Jona" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="route">Route</span></a>
+      </div>
+      <div class="facts">
+        <a class="gchip" href="https://www.google.com/maps/search/?api=1&query=Istanbul+Kebap+Halsgasse+28+Rapperswil" target="_blank" rel="noopener"><span>Google</span> <b>4,8</b> <span class="st" aria-hidden="true">★★★★★</span> <span data-i18n="reviews">1 280 Bewertungen</span></a>
+        <span class="status" id="heroStatus"><span class="dot"></span><span class="txt" data-i18n="daily">Täglich geöffnet</span></span>
+      </div>
+    </div>
+
+    <div class="oven" aria-hidden="true">
+      <svg viewBox="0 0 600 430" id="bread">
+        <defs>
+          <radialGradient id="gDough" cx="50%" cy="45%" r="60%">
+            <stop offset="0" stop-color="#F3E6CC"/><stop offset=".75" stop-color="#E8D3AE"/><stop offset="1" stop-color="#D9BE92"/>
+          </radialGradient>
+          <radialGradient id="gCrust" cx="48%" cy="40%" r="62%">
+            <stop offset="0" stop-color="#F0B866"/><stop offset=".45" stop-color="#DE9A47"/><stop offset=".82" stop-color="#B9702C"/><stop offset="1" stop-color="#8E4F1E"/>
+          </radialGradient>
+          <radialGradient id="gShine" cx="40%" cy="30%" r="45%">
+            <stop offset="0" stop-color="#FFF2D6" stop-opacity=".55"/><stop offset="1" stop-color="#FFF2D6" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="gShadow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="cBread"><path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z"/></clipPath>
+          <filter id="fTex" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 .35  0 0 0 0 .18  0 0 0 0 .06  0 0 0 -1.4 1.05"/>
+          </filter>
+          <filter id="fBlot" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="11" result="n"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 .45  0 0 0 0 .22  0 0 0 0 .07  0 0 0 2.6 -1.25"/>
+          </filter>
+          <radialGradient id="gRim" cx="50%" cy="50%" r="50%">
+            <stop offset=".72" stop-color="#5E2F10" stop-opacity="0"/><stop offset="1" stop-color="#5E2F10" stop-opacity=".55"/>
+          </radialGradient>
+          <clipPath id="cInner"><path d="M118 226c0-74 82-128 184-128s182 52 182 126-80 124-182 124S118 300 118 226z"/></clipPath>
+        </defs>
+        <ellipse cx="304" cy="372" rx="270" ry="40" fill="url(#gShadow)"/>
+        <g id="dough">
+          <path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z" fill="url(#gDough)"/>
+          <g id="crust">
+            <path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z" fill="url(#gCrust)"/>
+            <g clip-path="url(#cBread)">
+              <rect x="40" y="56" width="522" height="328" filter="url(#fBlot)" opacity=".55"/>
+              <rect x="40" y="56" width="522" height="328" filter="url(#fTex)" opacity=".35"/>
+              <path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z" fill="url(#gRim)"/>
+            </g>
+          </g>
+          <g id="score" clip-path="url(#cInner)" stroke-linecap="round" fill="none">
+            <g stroke="#FFE2AE" stroke-opacity=".5" stroke-width="3" transform="translate(0 -3)"><path d="M60 120l300 300M120 80l320 320M190 60l320 320M270 60l300 300M350 70l240 240M60 210l200 200"/><path d="M540 120L240 420M480 80L160 400M410 60L90 380M330 60L30 360M250 70L10 310M540 210L340 410"/></g>
+            <g stroke="#7A3F15" stroke-opacity=".6" stroke-width="6"><path d="M60 120l300 300M120 80l320 320M190 60l320 320M270 60l300 300M350 70l240 240M60 210l200 200"/><path d="M540 120L240 420M480 80L160 400M410 60L90 380M330 60L30 360M250 70L10 310M540 210L340 410"/></g>
+          </g>
+          <path d="M118 226c0-74 82-128 184-128s182 52 182 126-80 124-182 124S118 300 118 226z" fill="none" stroke="#7A421A" stroke-opacity=".28" stroke-width="3"/>
+          <ellipse id="shine" clip-path="url(#cBread)" cx="250" cy="160" rx="200" ry="95" fill="url(#gShine)"/>
+          <g id="seeds"></g>
+        </g>
+        <g class="steam" fill="none" stroke="#FFF7EC" stroke-width="5" stroke-linecap="round">
+          <path d="M230 120c-18-24 18-40 0-66s14-42 0-58" style="animation-delay:1.5s"/>
+          <path d="M310 104c-18-24 18-40 0-66s14-42 0-62" style="animation-delay:1.8s"/>
+          <path d="M392 120c-18-24 18-40 0-66s14-42 0-58" style="animation-delay:2.05s"/>
+        </g>
+      </svg>
+      <div class="tag" data-i18n="fresh">Frisch gebacken. Jeden Tag.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Aus unserem Ofen ===== -->
+<section class="trio" id="spezial">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="e1">Dafür kommen unsere Gäste</p>
+    <h2 class="rv" data-i18n="h2a">Drei Dinge, die man bei uns probieren muss</h2>
+    <div class="cards rv" data-settle>
+      <article class="card">
+        <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="36" rx="27" ry="17" fill="#DE9A47"/><ellipse cx="32" cy="34" rx="24" ry="14" fill="#F0B866"/><g fill="#FFF7EC"><ellipse cx="22" cy="31" rx="2" ry="1.1"/><ellipse cx="31" cy="27" rx="2" ry="1.1"/><ellipse cx="40" cy="31" rx="2" ry="1.1"/><ellipse cx="27" cy="38" rx="2" ry="1.1"/><ellipse cx="37" cy="38" rx="2" ry="1.1"/></g></svg>
+        <h3 data-i18n="c1h">Hausgemachtes Brot</h3>
+        <p data-i18n="c1p">Taschenbrot aus dem eigenen Ofen, täglich frisch. Aussen knusprig, innen weich.</p>
+        <span class="men" data-i18n="c1m">35× als hausgemacht gelobt</span>
+      </article>
+      <article class="card">
+        <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><rect x="31" y="4" width="2.6" height="56" rx="1.3" fill="#6B5E55"/><path d="M20 12h24l-3 10H23z" fill="#B9702C"/><path d="M22 22h20l-2.6 10H24.6z" fill="#C9822F"/><path d="M24.4 32h15.2l-2.3 10H26.7z" fill="#DE9A47"/><path d="M26.6 42h10.8L35.6 51h-7.2z" fill="#8E4F1E"/></svg>
+        <h3 data-i18n="c2h">Döner vom Spiess</h3>
+        <p data-i18n="c2p">Frisch vom Spiess geschnitten, mit knackigem Gemüse und Sauce – im Brot oder als Dürüm.</p>
+        <span class="men" data-i18n="c2m">330× in Bewertungen erwähnt</span>
+      </article>
+      <article class="card">
+        <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 32c8-11 22-14 28-14s20 3 28 14c-8 11-22 14-28 14S12 43 4 32z" fill="#DE9A47"/><path d="M13 32c6-6 14-8 19-8s13 2 19 8c-6 6-14 8-19 8s-13-2-19-8z" fill="#B83A22"/><g fill="#3E7B47"><circle cx="24" cy="31" r="2.2"/><circle cx="38" cy="33" r="2.2"/></g><g fill="#F6E5CC"><circle cx="31" cy="30" r="2"/><circle cx="44" cy="31" r="1.6"/><circle cx="19" cy="33" r="1.6"/></g></svg>
+        <h3 data-i18n="c3h">Pide aus dem Ofen</h3>
+        <p data-i18n="c3p">Das türkische Schiffchen: dünner Teig, im Ofen gebacken, belegt und heiss serviert.</p>
+        <span class="men" data-i18n="c3m">Gäste-Tipp</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Karte ===== -->
+<section class="menu" id="karte">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="e2">Speisekarte</p>
+    <h2 class="rv" data-i18n="h2b">Vom Spiess, aus dem Ofen, auf dem Teller</h2>
+    <p class="sub rv" data-i18n="subb">Zum Mitnehmen oder hier essen. Rufen Sie an, dann ist Ihre Bestellung bereit, wenn Sie kommen.</p>
+    <div class="menu-grid">
+      <div class="spit rv" aria-hidden="true">
+        <svg viewBox="0 0 200 420">
+          <rect x="97" y="0" width="6" height="420" rx="3" fill="#6B5E55"/>
+          <circle cx="100" cy="8" r="9" fill="#3A2E27"/>
+          <path class="layer" data-l="1" d="M24 40h152l-14 78H38z" fill="#B9702C"/>
+          <path class="layer" data-l="2" d="M38 122h124l-12 78H50z" fill="#C9822F"/>
+          <path class="layer" data-l="3" d="M50 204h100l-11 76H61z" fill="#DE9A47"/>
+          <path class="layer" data-l="4" d="M61 284h78l-10 70H71z" fill="#8E4F1E"/>
+          <g stroke="#FFF7EC" stroke-opacity=".22" stroke-width="2" fill="none">
+            <path d="M40 66c40 8 80 8 120 0M44 94c38 8 74 8 112 0M54 148c30 7 62 7 92 0M58 176c28 7 56 7 84 0M64 232c24 6 48 6 72 0M68 258c22 6 42 6 64 0M74 310c18 5 34 5 52 0"/>
+          </g>
+          <rect x="70" y="372" width="60" height="10" rx="5" fill="#3A2E27"/>
+        </svg>
+      </div>
+      <div>
+        <div class="groups rv" data-settle>
+          <div class="group" data-l="1">
+            <h3><span class="n">1</span><span data-i18n="g1">Im Brot</span></h3>
+            <div class="item"><div class="nm"><span data-i18n="m1">Döner im Taschenbrot</span><span class="star" data-i18n="fav">Favorit</span></div><div class="ds" data-i18n="m1d">Hausgemachtes Brot, Fleisch vom Spiess, frisches Gemüse, Sauce</div></div>
+            <div class="item"><div class="nm" data-i18n="m2">Kebap mit Appenzeller und Ei</div><div class="ds" data-i18n="m2d">Mit Appenzeller Käse und Ei – von Gästen empfohlen</div></div>
+          </div>
+          <div class="group" data-l="2">
+            <h3><span class="n">2</span><span data-i18n="g2">Gerollt</span></h3>
+            <div class="item"><div class="nm" data-i18n="m3">Dürüm</div><div class="ds" data-i18n="m3d">Fleisch vom Spiess und Gemüse, im dünnen Fladen gerollt</div></div>
+          </div>
+          <div class="group" data-l="3">
+            <h3><span class="n">3</span><span data-i18n="g3">Aus dem Ofen</span></h3>
+            <div class="item"><div class="nm" data-i18n="m5">Pide</div><div class="ds" data-i18n="m5d">Türkisches Schiffchen, frisch gebacken</div></div>
+            <div class="item"><div class="nm" data-i18n="m6">Pizza</div></div>
+          </div>
+          <div class="group" data-l="4">
+            <h3><span class="n">4</span><span data-i18n="g4">Teller</span></h3>
+            <div class="item"><div class="nm" data-i18n="m7">Kebap-Teller</div><div class="ds" data-i18n="m7d">Fleisch vom Spiess mit Beilagen und Salat</div></div>
+            <div class="item"><div class="nm" data-i18n="m8">Falafel-Teller</div><div class="ds" data-i18n="m8d">Falafel mit Beilagen und Salat</div></div>
+          </div>
+        </div>
+        <div class="pricenote rv"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;margin-top:2px" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg><span data-i18n-html="pnote"><b>Preise folgen.</b> Die vollständige Karte mit Preisen ergänzen wir mit dem Inhaber. Bis dahin: einfach anrufen unter 055 210 70 05.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Zeiten ===== -->
+<section class="hours" id="zeiten">
+  <div class="wrap">
+    <div class="hours-head">
+      <div>
+        <p class="eyebrow rv" data-i18n="e3">Öffnungszeiten</p>
+        <h2 class="rv" data-i18n="h2c">Jeden Tag offen</h2>
+        <p class="sub rv" data-i18n="subc">Unter der Woche Mittag und Abend, am Wochenende durchgehend.</p>
+      </div>
+      <div class="pill rv" id="pill"><span class="dot"></span><span class="txt">–</span></div>
+    </div>
+    <div class="week" id="week"></div>
+    <div class="axis" aria-hidden="true"><span></span><div class="ticks" id="ticks"></div><span class="sp"></span></div>
+    <p class="hnote" data-i18n="hnote">Feiertage können abweichen – im Zweifel kurz anrufen.</p>
+  </div>
+</section>
+
+<!-- ===== Bewertungen ===== -->
+<section class="rating" id="bewertungen">
+  <div class="wrap rate-grid">
+    <div>
+      <p class="eyebrow" data-i18n="e4">Was Gäste sagen</p>
+      <div class="score">
+        <div class="big">4,8</div>
+        <div>
+          <div class="stars" aria-label="4,8 von 5">★★★★★<span class="fill">★★★★★</span></div>
+          <div class="cnt"><b>1 280</b> <span data-i18n="cnt">Bewertungen auf Google</span></div>
+        </div>
+      </div>
+      <a class="glink" href="https://www.google.com/maps/search/?api=1&query=Istanbul+Kebap+Halsgasse+28+Rapperswil" target="_blank" rel="noopener"><span data-i18n="glink">Alle Bewertungen ansehen</span> <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="praise" data-settle>
+      <div class="pr"><div class="num" data-count="330">330<small>×</small></div><div class="lb" data-i18n="p1">Döner</div></div>
+      <div class="pr"><div class="num" data-count="35">35<small>×</small></div><div class="lb" data-i18n="p2">hausgemachtes Brot</div></div>
+      <div class="pr"><div class="num" data-count="25">25<small>×</small></div><div class="lb" data-i18n="p3">Taschenbrot</div></div>
+      <div class="pr"><div class="num" data-count="13">13<small>×</small></div><div class="lb" data-i18n="p4">Pide</div></div>
+      <p class="src" data-i18n="src">So oft nennen Gäste diese Stichworte in Google-Bewertungen (Stand November 2026).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Anfahrt ===== -->
+<section class="visit" id="anfahrt">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="e5">So finden Sie uns</p>
+    <h2 class="rv" data-i18n="h2d">Mitten in der Altstadt</h2>
+    <div class="visit-grid rv" data-settle>
+      <div class="addr">
+        <div class="l1">Istanbul Kebap</div>
+        <div class="l2">Halsgasse 28, 8640 Rapperswil-Jona</div>
+        <div class="l3" data-i18n="walk">Ca. 5 Minuten zu Fuss vom Bahnhof Rapperswil, nahe Hauptplatz.</div>
+        <div class="row">
+          <a class="sbtn pri" href="https://www.google.com/maps/dir/?api=1&destination=Istanbul+Kebap%2C+Halsgasse+28%2C+8640+Rapperswil-Jona" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="route">Route</span></a>
+          <a class="sbtn" href="tel:+41552107005"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>055 210 70 05</a>
+          <button class="sbtn" type="button" id="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span data-i18n="copy">Kopieren</span></button>
+        </div>
+      </div>
+      <div class="mini">
+        <div class="walkline">
+          <div class="pt"><span class="pin st"></span><b>Bahnhof Rapperswil</b></div>
+          <div class="dots"><span data-i18n="walkmin">ca. 5 Min. zu Fuss</span></div>
+          <div class="pt"><span class="pin go"></span><b>Halsgasse 28</b></div>
+        </div>
+        <div class="cap" data-i18n="plancap">Durch die Altstadt, vorbei am Hauptplatz.</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Istanbul Bistro GmbH</b> · Halsgasse 28 · 8640 Rapperswil-Jona · <a href="tel:+41552107005">055 210 70 05</a></div>
+    <div class="rose"><svg viewBox="0 0 24 24" fill="none" stroke="#E2572B" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 13c-3 0-5-2-5-4.5S9.5 4 12 4s5 2 5 4.5S15 13 12 13z"/><path d="M12 7c-1.2 0-2 .8-2 1.8S11 11 12 11M12 13v8M12 17c-2-1-3.5-1-5-.2M12 18.5c1.6-1.2 3-1.4 4.6-.8"/></svg><span data-i18n="rose">Aus der Rosenstadt am See</span></div>
+    <div class="draft" data-i18n="draft">Musterseite – Entwurf zur Ansicht</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var T = {
+    de:{brandsub:"Kebap · Rapperswil",kicker:"Halsgasse 28 · Altstadt",h1:'Döner im Brot, <em>das wir selbst backen.</em>',
+      lede:"Unser Taschenbrot kommt jeden Tag frisch aus dem eigenen Ofen. Dazu Fleisch vom Spiess, frisches Gemüse, Dürüm und Pide.",
+      call:"Anrufen",route:"Route",reviews:"1 280 Bewertungen",daily:"Täglich geöffnet",fresh:"Frisch gebacken. Jeden Tag.",
+      e1:"Dafür kommen unsere Gäste",h2a:"Drei Dinge, die man bei uns probieren muss",
+      c1h:"Hausgemachtes Brot",c1p:"Taschenbrot aus dem eigenen Ofen, täglich frisch. Aussen knusprig, innen weich.",c1m:"35× als hausgemacht gelobt",
+      c2h:"Döner vom Spiess",c2p:"Frisch vom Spiess geschnitten, mit knackigem Gemüse und Sauce – im Brot oder als Dürüm.",c2m:"330× in Bewertungen erwähnt",
+      c3h:"Pide aus dem Ofen",c3p:"Das türkische Schiffchen: dünner Teig, im Ofen gebacken, belegt und heiss serviert.",c3m:"Gäste-Tipp",
+      e2:"Speisekarte",h2b:"Vom Spiess, aus dem Ofen, auf dem Teller",subb:"Zum Mitnehmen oder hier essen. Rufen Sie an, dann ist Ihre Bestellung bereit, wenn Sie kommen.",
+      g1:"Im Brot",g2:"Gerollt",g3:"Aus dem Ofen",g4:"Teller",fav:"Favorit",
+      m1:"Döner im Taschenbrot",m1d:"Hausgemachtes Brot, Fleisch vom Spiess, frisches Gemüse, Sauce",
+      m2:"Kebap mit Appenzeller und Ei",m2d:"Mit Appenzeller Käse und Ei – von Gästen empfohlen",
+      m3:"Dürüm",m3d:"Fleisch vom Spiess und Gemüse, im dünnen Fladen gerollt",
+            m5:"Pide",m5d:"Türkisches Schiffchen, frisch gebacken",m6:"Pizza",
+      m7:"Kebap-Teller",m7d:"Fleisch vom Spiess mit Beilagen und Salat",m8:"Falafel-Teller",m8d:"Falafel mit Beilagen und Salat",
+      pnote:"<b>Preise folgen.</b> Die vollständige Karte mit Preisen ergänzen wir mit dem Inhaber. Bis dahin: einfach anrufen unter 055 210 70 05.",
+      e3:"Öffnungszeiten",h2c:"Jeden Tag offen",subc:"Unter der Woche Mittag und Abend, am Wochenende durchgehend.",
+      hnote:"Feiertage können abweichen – im Zweifel kurz anrufen.",
+      e4:"Was Gäste sagen",cnt:"Bewertungen auf Google",glink:"Alle Bewertungen ansehen",
+      p1:"Döner",p2:"hausgemachtes Brot",p3:"Taschenbrot",p4:"Pide",
+      src:"So oft nennen Gäste diese Stichworte in Google-Bewertungen (Stand November 2026).",
+      e5:"So finden Sie uns",h2d:"Mitten in der Altstadt",walk:"Ca. 5 Minuten zu Fuss vom Bahnhof Rapperswil, nahe Hauptplatz.",
+      copy:"Kopieren",copied:"Kopiert ✓",plancap:"Durch die Altstadt, vorbei am Hauptplatz.",walkmin:"ca. 5 Min. zu Fuss",
+      rose:"Aus der Rosenstadt am See",draft:"Musterseite – Entwurf zur Ansicht",
+      days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],
+      daysS:["Mo","Di","Mi","Do","Fr","Sa","So"],today:"heute",
+      openUntil:"Jetzt offen · bis ",closedAgain:"Geschlossen · wieder ab ",closedTom:"Geschlossen · morgen ab ",opensAt:"Öffnet heute um ",
+      todayH:"Heute ",lang:"Sprache"},
+    en:{brandsub:"Kebab · Rapperswil",kicker:"Halsgasse 28 · Old Town",h1:'Döner in bread <em>we bake ourselves.</em>',
+      lede:"Our pocket bread comes fresh out of our own oven every day. With meat from the spit, fresh vegetables, dürüm and pide.",
+      call:"Call us",route:"Directions",reviews:"1,280 reviews",daily:"Open every day",fresh:"Freshly baked. Every day.",
+      e1:"Why our guests come back",h2a:"Three things you have to try here",
+      c1h:"Homemade bread",c1p:"Pocket bread from our own oven, fresh every day. Crisp outside, soft inside.",c1m:"Praised 35× as homemade",
+      c2h:"Döner from the spit",c2p:"Carved fresh from the spit, with crunchy vegetables and sauce – in bread or as a dürüm.",c2m:"Mentioned 330× in reviews",
+      c3h:"Pide from the oven",c3p:"The Turkish boat: thin dough, baked in the oven, topped and served hot.",c3m:"Guests’ tip",
+      e2:"Menu",h2b:"From the spit, from the oven, on the plate",subb:"Take away or eat in. Give us a call and your order will be ready when you arrive.",
+      g1:"In bread",g2:"Wraps",g3:"From the oven",g4:"Plates",fav:"Favourite",
+      m1:"Döner in pocket bread",m1d:"Homemade bread, meat from the spit, fresh vegetables, sauce",
+      m2:"Kebab with Appenzeller and egg",m2d:"With Appenzeller cheese and egg – recommended by guests",
+      m3:"Dürüm",m3d:"Meat from the spit and vegetables, rolled in thin flatbread",
+            m5:"Pide",m5d:"Turkish boat-shaped flatbread, freshly baked",m6:"Pizza",
+      m7:"Kebab plate",m7d:"Meat from the spit with sides and salad",m8:"Falafel plate",m8d:"Falafel with sides and salad",
+      pnote:"<b>Prices coming soon.</b> We are adding the full menu with prices together with the owner. Until then, just call 055 210 70 05.",
+      e3:"Opening hours",h2c:"Open every day",subc:"Lunch and evening on weekdays, all day at the weekend.",
+      hnote:"Hours may differ on public holidays – if in doubt, give us a quick call.",
+      e4:"What guests say",cnt:"reviews on Google",glink:"See all reviews",
+      p1:"döner",p2:"homemade bread",p3:"pocket bread",p4:"pide",
+      src:"How often guests mention these words in Google reviews (as of November 2026).",
+      e5:"How to find us",h2d:"Right in the Old Town",walk:"About 5 minutes’ walk from Rapperswil station, near Hauptplatz.",
+      copy:"Copy",copied:"Copied ✓",plancap:"Through the Old Town, past Hauptplatz.",walkmin:"about 5 min on foot",
+      rose:"From the Town of Roses by the lake",draft:"Sample page – draft for review",
+      days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      daysS:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],today:"today",
+      openUntil:"Open now · until ",closedAgain:"Closed · back at ",closedTom:"Closed · opens tomorrow at ",opensAt:"Opens today at ",
+      todayH:"Today ",lang:"Language"}
+  };
+  // Öffnungszeiten (Quelle: SwipeIn / restaurantguru; mit Inhaber bestätigen)
+  var H = [ [[690,840],[1050,1320]],[[690,840],[1050,1320]],[[690,840],[1050,1320]],[[690,840],[1050,1320]],[[690,840],[1050,1320]],[[690,1320]],[[690,1320]] ];
+  var AX0=660, AX1=1350; // 11:00–22:30
+  var lang='de';
+  try{ var s=localStorage.getItem('ist-lang'); if(s==='en'||s==='de') lang=s; }catch(e){}
+
+  function fmt(m){var h=Math.floor(m/60),mm=m%60;return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm}
+  function zurichNow(){
+    try{
+      var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zurich',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+      var o={};p.forEach(function(x){o[x.type]=x.value});
+      var d=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(o.weekday);
+      return {d:d<0?0:d,m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+    }catch(e){var n=new Date();return {d:(n.getDay()+6)%7,m:n.getHours()*60+n.getMinutes()}}
+  }
+  function status(){
+    var t=T[lang],z=zurichNow(),day=H[z.d];
+    for(var i=0;i<day.length;i++){
+      if(z.m>=day[i][0]&&z.m<day[i][1]) return {open:true,txt:t.openUntil+fmt(day[i][1])};
+      if(z.m<day[i][0]) return {open:false,txt:(i===0?t.opensAt:t.closedAgain)+fmt(day[i][0])};
+    }
+    return {open:false,txt:t.closedTom+fmt(H[(z.d+1)%7][0][0])};
+  }
+  function buildWeek(){
+    var t=T[lang],z=zurichNow(),w=document.getElementById('week'),narrow=window.innerWidth<=700;
+    var html='';
+    for(var d=0;d<7;d++){
+      var segs='',tm=[];
+      H[d].forEach(function(r){
+        var l=(r[0]-AX0)/(AX1-AX0)*100,wd=(r[1]-r[0])/(AX1-AX0)*100;
+        segs+='<span class="seg" style="left:'+l+'%;width:'+wd+'%;transition-delay:'+(d*60)+'ms"></span>';
+        tm.push(fmt(r[0])+'–'+fmt(r[1]));
+      });
+      var isT=d===z.d, now='';
+      if(isT&&z.m>=AX0&&z.m<=AX1) now='<span class="now" style="left:'+((z.m-AX0)/(AX1-AX0)*100)+'%"></span>';
+      html+='<div class="day'+(isT?' today':'')+'"><span class="dn" data-t="'+t.today+'">'+(narrow?t.daysS[d]:t.days[d])+'</span><div class="track">'+segs+now+'</div><span class="tm">'+tm.join(' · ')+'</span></div>';
+    }
+    w.innerHTML=html;
+    var tk='';[12,14,16,18,20,22].forEach(function(h){tk+='<span style="left:'+((h*60-AX0)/(AX1-AX0)*100)+'%">'+h+'</span>'});
+    document.getElementById('ticks').innerHTML=tk;
+    var st=status();
+    var pill=document.getElementById('pill');pill.classList.toggle('open',st.open);pill.querySelector('.txt').textContent=st.txt;
+    var hs=document.getElementById('heroStatus');hs.classList.toggle('open',st.open);hs.querySelector('.txt').textContent=st.txt;
+  }
+  function apply(){
+    var t=T[lang];
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(t[k]!=null)el.textContent=t[k]});
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){var k=el.getAttribute('data-i18n-html');if(t[k]!=null)el.innerHTML=t[k]});
+    document.querySelectorAll('[data-svg-i18n]').forEach(function(el){var k=el.getAttribute('data-svg-i18n');if(t[k]!=null)el.textContent=t[k]});
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false')});
+    document.querySelector('.lang').setAttribute('aria-label',t.lang);
+    var wk=document.getElementById('week'),wasIn=wk.classList.contains('in');
+    buildWeek(); if(wasIn) wk.classList.add('in');
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.lang;try{localStorage.setItem('ist-lang',lang)}catch(e){}apply()})});
+
+  // Sesam
+  var g=document.getElementById('seeds'),ns='http://www.w3.org/2000/svg',seed=7;
+  function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+  var n=0;
+  for(var i=0;i<400&&n<46;i++){
+    var x=120+rnd()*360,y=104+rnd()*240,dx=(x-301)/182,dy=(y-224)/124;
+    if(dx*dx+dy*dy>0.9) continue;
+    var e=document.createElementNS(ns,'ellipse');
+    e.setAttribute('cx',x.toFixed(1));e.setAttribute('cy',y.toFixed(1));e.setAttribute('rx','5.2');e.setAttribute('ry','2.6');
+    e.setAttribute('fill',rnd()>.25?'#FFF3DC':'#F3D9A8');e.setAttribute('class','seed');
+    e.setAttribute('transform','rotate('+Math.round(rnd()*180)+' '+x.toFixed(1)+' '+y.toFixed(1)+')');
+    e.style.animationDelay=(1.35+n*0.018).toFixed(3)+'s';
+    var wrap=document.createElementNS(ns,'g');wrap.appendChild(e);g.appendChild(wrap);n++;
+  }
+  var root=document.documentElement,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(function(){root.classList.add('go')},40);
+  setTimeout(function(){root.classList.add('baked')},reduce?0:2300);
+  setTimeout(function(){root.classList.add('ready')},reduce?0:3000);
+
+  // Reveal – einmal, auch bei schnellem Scrollen
+  var rv=[].slice.call(document.querySelectorAll('.rv, #week, .rating'));
+  function settle(el){ if(el.hasAttribute('data-settle')) setTimeout(function(){el.classList.add('settled')},reduce?0:700); }
+  function show(el){ if(el.classList.contains('in')) return; el.classList.add('in'); settle(el); if(el.classList.contains('rating')) count(el); }
+  function check(){
+    var vh=window.innerHeight;
+    rv=rv.filter(function(el){var r=el.getBoundingClientRect(); if(r.top<vh-16){show(el);return false} return true});
+    if(!rv.length) window.removeEventListener('scroll',check);
+  }
+  window.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);
+  // .praise und .groups liegen in Containern ohne .rv-Klasse? -> eigene Settle
+  document.querySelectorAll('[data-settle]:not(.rv)').forEach(function(el){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){settle(el);io.disconnect()}})});io.observe(el);
+  });
+  function count(sec){
+    sec.querySelectorAll('[data-count]').forEach(function(el){
+      var to=+el.dataset.count,t0=null,dur=reduce?1:1100;
+      function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),v=Math.round(to*(1-Math.pow(1-p,3)));el.firstChild.nodeValue=v;if(p<1)requestAnimationFrame(step)}
+      el.firstChild.nodeValue='0';requestAnimationFrame(step);
+    });
+  }
+
+  // Spiess <-> Karte
+  document.querySelectorAll('.group').forEach(function(gr){
+    var l=gr.dataset.l;
+    function on(v){var el=document.querySelector('.spit .layer[data-l="'+l+'"]');if(el)el.classList.toggle('hot',v)}
+    gr.addEventListener('mouseenter',function(){if(gr.closest('.settled'))on(true)});
+    gr.addEventListener('mouseleave',function(){on(false)});
+  });
+
+  // Kopieren
+  var cp=document.getElementById('copy');
+  cp.addEventListener('click',function(){
+    var txt='Istanbul Kebap, Halsgasse 28, 8640 Rapperswil-Jona';
+    function done(){var s=cp.querySelector('span');s.textContent=T[lang].copied;setTimeout(function(){s.textContent=T[lang].copy},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done)}else{done()}
+  });
+
+  var lastNarrow=window.innerWidth<=700;
+  window.addEventListener('resize',function(){var nw=window.innerWidth<=700;if(nw!==lastNarrow){lastNarrow=nw;var wk=document.getElementById('week'),wi=wk.classList.contains('in');buildWeek();if(wi)wk.classList.add('in')}});
+  setInterval(function(){
+    var st=status(),z=zurichNow();
+    ['pill','heroStatus'].forEach(function(id){var el=document.getElementById(id);el.classList.toggle('open',st.open);el.querySelector('.txt').textContent=st.txt});
+    var nw=document.querySelector('.day.today .now'); if(nw) nw.style.left=((z.m-AX0)/(AX1-AX0)*100)+'%';
+  },60000);
+
+  apply(); check();
+})();
+</script>
+</body>
+</html>
