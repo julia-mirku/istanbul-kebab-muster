@@ -69,41 +69,37 @@ h1 em{font-style:normal;color:var(--flame)}
 .status .dot{width:9px;height:9px;border-radius:50%;background:#9A8B7E}
 .status.open .dot{background:#6FCB7B;box-shadow:0 0 0 4px rgba(111,203,123,.18)}
 
-.oven{position:relative;aspect-ratio:600/430;width:100%;max-width:640px;justify-self:end}
-.oven svg{width:100%;height:100%;overflow:visible}
-.oven .tag{position:absolute;left:6%;bottom:2%;font-family:var(--f-d);font-weight:700;font-variation-settings:"SOFT" 100;font-size:clamp(15px,1.6vw,19px);color:var(--flour);background:rgba(30,24,21,.72);border:1px solid rgba(255,247,236,.16);border-radius:999px;padding:7px 15px;opacity:0;transform:translateY(6px);transition:opacity .5s ease, transform .5s ease}
+.oven{position:relative;width:calc(100% + 40px);max-width:720px;justify-self:end;margin-right:-20px}
+.oven .tag svg{width:18px;height:18px;flex:none}
+.oven .tag{position:absolute;left:4%;bottom:1%;font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;font-size:clamp(15px,1.6vw,19px);color:var(--coal);background:var(--flour);border-radius:999px;padding:8px 16px 8px 13px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);transition:opacity .5s ease, transform .5s ease}
 .baked .oven .tag{opacity:1;transform:none}
 
-/* Brot-Animation: einmal, ~2.6 s */
-#dough{transform-origin:300px 230px;transform:scale(.94,.9)}
-#crust,#score,#shine{opacity:0}
-.seed{opacity:0}
+/* Brot-Animation: einmal, ~2.4 s – vom hellen Teig zur goldenen Kruste */
+.oven{aspect-ratio:1600/1195}
+.loaf{width:100%;height:100%;object-fit:cover;border-radius:18px;
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 52%,#000 64%,rgba(0,0,0,.6) 82%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 52%,#000 64%,rgba(0,0,0,.6) 82%,transparent 100%);
+  filter:saturate(.2) brightness(1.45) contrast(.74) sepia(.3);transform:scale(.965);transition:transform .6s ease}
+.go .loaf{animation:bake 2.3s cubic-bezier(.4,.1,.3,1) .1s forwards}
+.baked .loaf{filter:none;transform:none}
+@keyframes bake{0%{filter:saturate(.2) brightness(1.45) contrast(.74) sepia(.3);transform:scale(.965)}55%{filter:saturate(.8) brightness(1.15) contrast(.9) sepia(.05)}100%{filter:saturate(1.05) brightness(1) contrast(1.02) sepia(0);transform:scale(1)}}
+.steam-l{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .steam path{stroke-dasharray:160;stroke-dashoffset:160;opacity:0}
-.go #dough{animation:rise 2.2s cubic-bezier(.3,.7,.3,1) forwards}
-.go #crust{animation:bake 2.2s ease-in-out .15s forwards}
-.go #score{animation:fade .9s ease 1.2s forwards}
-.go #shine{animation:fade .8s ease 1.8s forwards}
-.go .seed{animation:seed .5s cubic-bezier(.2,.8,.3,1.2) forwards}
 .go .steam path{animation:steam 2.4s ease-out forwards}
-/* Endzustand auch ohne laufende Animation */
-.baked #dough{transform:none}.baked #crust,.baked #score,.baked #shine,.baked .seed{opacity:1}
-@keyframes rise{to{transform:scale(1,1)}}
-@keyframes bake{0%{opacity:0}60%{opacity:.85}100%{opacity:1}}
+.ki{position:absolute;right:12%;top:13%;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:rgba(255,247,236,.82);background:rgba(30,24,21,.55);border-radius:6px;padding:2px 7px}
 @keyframes fade{to{opacity:1}}
 @keyframes seed{0%{opacity:0;transform:translateY(-14px)}100%{opacity:1;transform:none}}
-@keyframes steam{0%{opacity:0;stroke-dashoffset:160}25%{opacity:.55}100%{opacity:0;stroke-dashoffset:0}}
+@keyframes steam{0%{opacity:0;stroke-dashoffset:160}25%{opacity:.5}100%{opacity:0;stroke-dashoffset:0}}
 
 /* Hover erst nach Animation */
 .ready .btn-call:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(226,87,43,.5)}
 .ready .btn-route:hover{background:rgba(255,247,236,.16)}
 .ready .callbtn:hover{background:#ED6A3E}
-.oven svg{transition:transform .6s ease}
-.ready .oven:hover svg{transform:scale(1.02) rotate(-.6deg)}
+.ready .oven:hover .loaf{transform:scale(1.025)}
 .ready .gchip:hover b{text-decoration:underline;text-underline-offset:3px}
 
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr;gap:6px;padding-top:18px;padding-bottom:34px}
-  .oven{order:-1;justify-self:center;max-width:520px;margin:0 -6px}
+  .oven{order:-1;justify-self:center;width:calc(100% + 24px);max-width:600px;margin:0 -12px}
   h1{margin-top:6px}
 }
 @media (max-width:620px){
@@ -114,7 +110,7 @@ h1 em{font-style:normal;color:var(--flame)}
 /* Handy quer: Brot neben den Text, nichts unnötig hoch */
 @media (orientation:landscape) and (max-height:520px){
   .hero .wrap{grid-template-columns:1fr 1fr;padding-top:16px;padding-bottom:22px;gap:18px}
-  .oven{order:0;max-width:none}
+  .oven{order:0;max-width:none;width:100%;margin:0}
   h1{font-size:34px;margin:8px 0 10px}
   .lede{font-size:15.5px;margin-bottom:14px}
   .actions{display:flex}.btn{min-width:150px;padding:11px 14px;font-size:16px}
@@ -131,6 +127,25 @@ h2{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;fon
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
 .rv.in{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
+
+
+/* ---------- Handwerk-Band ---------- */
+.craft{padding:26px 0 30px;background:linear-gradient(180deg,#2B1E17,#33241B);color:var(--flour);border-top:1px solid rgba(243,163,58,.18)}
+.craft-h{margin:0 0 18px;font-family:var(--f-d);font-weight:700;font-variation-settings:"SOFT" 100;font-size:clamp(18px,2vw,22px);color:#F6E2C4}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.step{position:relative;display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center}
+.step .si{grid-row:span 2;width:48px;height:48px;border-radius:14px;background:rgba(243,163,58,.12);color:var(--flame);display:grid;place-items:center;transition:background-color .5s ease, color .5s ease, transform .5s ease}
+.step .si svg{width:32px;height:32px}
+.step b{font-size:16.5px;color:#fff}
+.step span:last-child{font-size:14.5px;color:#D9C8B6;line-height:1.35}
+.steps.lit .step .si{animation:lit .9s ease forwards}
+.steps.lit .step:nth-child(2) .si{animation-delay:.35s}.steps.lit .step:nth-child(3) .si{animation-delay:.7s}.steps.lit .step:nth-child(4) .si{animation-delay:1.05s}
+@keyframes lit{0%{background:rgba(243,163,58,.12);color:var(--flame)}45%{background:var(--flame);color:var(--coal);transform:scale(1.08)}100%{background:rgba(243,163,58,.22);color:#FFD08A;transform:none}}
+.settled .step:hover .si{background:var(--flame);color:var(--coal)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;gap:16px 14px}}
+@media (max-width:360px){.step{grid-template-columns:40px 1fr;column-gap:10px}.step .si{width:40px;height:40px}.step .si svg{width:27px;height:27px}.step b{font-size:15.5px}.step span:last-child{font-size:13.5px}}
+.trio{padding-top:56px}
+@media (max-width:620px){.trio{padding-top:42px}}
 
 /* ---------- Ofen-Trio ---------- */
 .trio{background:var(--paper)}
@@ -160,8 +175,8 @@ h2{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;fon
 .item .ds{color:var(--muted);font-size:15px;margin-top:2px}
 .item .star{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pepper);background:var(--pepper-bg);border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:2px}
 .settled .group:hover{border-color:#E8C79A;box-shadow:0 10px 26px rgba(142,79,30,.10)}
-.pricenote{display:flex;gap:12px;align-items:flex-start;margin-top:18px;background:#FFF4E2;border:1px solid #F1D7AE;border-radius:12px;padding:14px 16px;font-size:15px;color:#6A4A22}
-.pricenote b{color:#4A3014}
+.pricenote{margin:18px 0 0;font-size:16px;color:var(--muted)}
+.pricenote a{color:var(--ink);font-weight:800;text-decoration:none;border-bottom:2px solid #F1C58A;white-space:nowrap}
 @media (max-width:980px){.menu-grid{grid-template-columns:1fr;gap:0}.spit{display:none}}
 @media (max-width:700px){.groups{grid-template-columns:1fr;gap:12px}.group{padding:18px 18px 6px}}
 
@@ -210,15 +225,15 @@ h2{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;fon
 .score .cnt b{color:#fff;font-size:20px}
 .glink{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--flame);font-weight:700;text-decoration:none;border-bottom:1.5px solid rgba(243,163,58,.4);padding-bottom:2px;transition:border-color .25s ease}
 .settled .glink:hover{border-color:var(--flame)}
-.praise{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.praise{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
 .pr{background:var(--coal-2);border:1px solid rgba(255,247,236,.08);border-radius:var(--r);padding:18px 18px 16px;transition:background-color .3s ease, border-color .3s ease}
 .pr .num{font-family:var(--f-d);font-weight:800;font-variation-settings:"SOFT" 100;font-size:40px;line-height:1;color:var(--flame)}
 .pr .num small{font-size:22px;margin-left:2px}
 .pr .lb{margin-top:6px;font-weight:600;color:var(--flour)}
 .settled .pr:hover{background:var(--coal-3);border-color:rgba(243,163,58,.35)}
 .src{grid-column:1/-1;font-size:13.5px;color:#A8968A;margin-top:4px}
-@media (max-width:880px){.rate-grid{grid-template-columns:1fr;gap:30px}}
-@media (max-width:360px){.pr .num{font-size:34px}.score{gap:16px}}
+@media (max-width:880px){.rate-grid{grid-template-columns:minmax(0,1fr);gap:30px}}
+@media (max-width:360px){.pr .num{font-size:34px}.score{gap:14px}.score .big{font-size:72px}.stars{font-size:23px;letter-spacing:2px}.score .cnt{font-size:15.5px}}
 
 /* ---------- Anfahrt ---------- */
 .visit{background:var(--paper)}
@@ -292,70 +307,35 @@ footer b{color:var(--flour)}
       </div>
     </div>
 
-    <div class="oven" aria-hidden="true">
-      <svg viewBox="0 0 600 430" id="bread">
-        <defs>
-          <radialGradient id="gDough" cx="50%" cy="45%" r="60%">
-            <stop offset="0" stop-color="#F3E6CC"/><stop offset=".75" stop-color="#E8D3AE"/><stop offset="1" stop-color="#D9BE92"/>
-          </radialGradient>
-          <radialGradient id="gCrust" cx="48%" cy="40%" r="62%">
-            <stop offset="0" stop-color="#F0B866"/><stop offset=".45" stop-color="#DE9A47"/><stop offset=".82" stop-color="#B9702C"/><stop offset="1" stop-color="#8E4F1E"/>
-          </radialGradient>
-          <radialGradient id="gShine" cx="40%" cy="30%" r="45%">
-            <stop offset="0" stop-color="#FFF2D6" stop-opacity=".55"/><stop offset="1" stop-color="#FFF2D6" stop-opacity="0"/>
-          </radialGradient>
-          <radialGradient id="gShadow" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
-          </radialGradient>
-          <clipPath id="cBread"><path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z"/></clipPath>
-          <filter id="fTex" x="0" y="0" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/>
-            <feColorMatrix type="matrix" values="0 0 0 0 .35  0 0 0 0 .18  0 0 0 0 .06  0 0 0 -1.4 1.05"/>
-          </filter>
-          <filter id="fBlot" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="11" result="n"/>
-            <feColorMatrix type="matrix" values="0 0 0 0 .45  0 0 0 0 .22  0 0 0 0 .07  0 0 0 2.6 -1.25"/>
-          </filter>
-          <radialGradient id="gRim" cx="50%" cy="50%" r="50%">
-            <stop offset=".72" stop-color="#5E2F10" stop-opacity="0"/><stop offset="1" stop-color="#5E2F10" stop-opacity=".55"/>
-          </radialGradient>
-          <clipPath id="cInner"><path d="M118 226c0-74 82-128 184-128s182 52 182 126-80 124-182 124S118 300 118 226z"/></clipPath>
-        </defs>
-        <ellipse cx="304" cy="372" rx="270" ry="40" fill="url(#gShadow)"/>
-        <g id="dough">
-          <path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z" fill="url(#gDough)"/>
-          <g id="crust">
-            <path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z" fill="url(#gCrust)"/>
-            <g clip-path="url(#cBread)">
-              <rect x="40" y="56" width="522" height="328" filter="url(#fBlot)" opacity=".55"/>
-              <rect x="40" y="56" width="522" height="328" filter="url(#fTex)" opacity=".35"/>
-              <path d="M44 232C40 128 160 58 304 60s262 66 254 170-124 150-256 150S48 330 44 232z" fill="url(#gRim)"/>
-            </g>
-          </g>
-          <g id="score" clip-path="url(#cInner)" stroke-linecap="round" fill="none">
-            <g stroke="#FFE2AE" stroke-opacity=".5" stroke-width="3" transform="translate(0 -3)"><path d="M60 120l300 300M120 80l320 320M190 60l320 320M270 60l300 300M350 70l240 240M60 210l200 200"/><path d="M540 120L240 420M480 80L160 400M410 60L90 380M330 60L30 360M250 70L10 310M540 210L340 410"/></g>
-            <g stroke="#7A3F15" stroke-opacity=".6" stroke-width="6"><path d="M60 120l300 300M120 80l320 320M190 60l320 320M270 60l300 300M350 70l240 240M60 210l200 200"/><path d="M540 120L240 420M480 80L160 400M410 60L90 380M330 60L30 360M250 70L10 310M540 210L340 410"/></g>
-          </g>
-          <path d="M118 226c0-74 82-128 184-128s182 52 182 126-80 124-182 124S118 300 118 226z" fill="none" stroke="#7A421A" stroke-opacity=".28" stroke-width="3"/>
-          <ellipse id="shine" clip-path="url(#cBread)" cx="250" cy="160" rx="200" ry="95" fill="url(#gShine)"/>
-          <g id="seeds"></g>
-        </g>
+    <div class="oven">
+      <img class="loaf" src="img/brot_1600.jpg" srcset="img/brot_900.jpg 900w, img/brot_1600.jpg 1600w" sizes="(max-width:900px) 100vw, 640px" width="1600" height="1195" alt="Frisch gebackenes Fladenbrot mit Sesam auf dem Ofenstein" data-i18n-alt="alt">
+      <svg class="steam-l" viewBox="0 0 600 448" aria-hidden="true">
         <g class="steam" fill="none" stroke="#FFF7EC" stroke-width="5" stroke-linecap="round">
-          <path d="M230 120c-18-24 18-40 0-66s14-42 0-58" style="animation-delay:1.5s"/>
-          <path d="M310 104c-18-24 18-40 0-66s14-42 0-62" style="animation-delay:1.8s"/>
-          <path d="M392 120c-18-24 18-40 0-66s14-42 0-58" style="animation-delay:2.05s"/>
+          <path d="M230 150c-18-24 18-40 0-66s14-42 0-58" style="animation-delay:1.7s"/>
+          <path d="M310 140c-18-24 18-40 0-66s14-42 0-62" style="animation-delay:2s"/>
+          <path d="M392 150c-18-24 18-40 0-66s14-42 0-58" style="animation-delay:2.25s"/>
         </g>
       </svg>
-      <div class="tag" data-i18n="fresh">Frisch gebacken. Jeden Tag.</div>
+      <span class="ki" data-i18n="ki">KI-Bild</span>
+      <div class="tag"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E2572B" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M8 15c-2-3 2-5 0-8M12 15c-2-3 2-5 0-8M16 15c-2-3 2-5 0-8"/><path d="M4 19h16"/></svg><span id="freshTxt">Frisch gebacken – heute, Samstag</span></div>
     </div>
+  </div>
+</section>
+
+
+<!-- ===== Vom Teig bis in Ihre Hand ===== -->
+<section class="craft" id="handwerk" aria-labelledby="craftH">
+  <div class="wrap">
+    <p class="craft-h" id="craftH" data-i18n="crafth">Vom Teig bis in Ihre Hand – alles hier in der Halsgasse 28</p>
+    <ol class="steps" id="steps"><li class="step"><span class="si"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 31c0-8 7-14 15-14s15 6 15 14c0 3-3 5-6 5H15c-3 0-6-2-6-5z"/><path d="M18 24c2 2 6 2 8 0M24 17c0-3 2-5 5-6"/></svg></span><b data-i18n="s1">x</b><span data-i18n="s1t">x</span></li><li class="step"><span class="si"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="6"/><path d="M6 30h36"/><path d="M24 26c-4 0-5-3-3-6 1 2 2 2 2 0 0-2 1-4 3-5-1 3 3 5 2 8-.4 2-2 3-4 3z"/></svg></span><b data-i18n="s2">x</b><span data-i18n="s2t">x</span></li><li class="step"><span class="si"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4v40"/><path d="M14 10h20l-3 9H17zM17 19h14l-2.6 9h-8.8zM19.4 28h9.2L26.5 36h-5z"/></svg></span><b data-i18n="s3">x</b><span data-i18n="s3t">x</span></li><li class="step"><span class="si"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c0-6 5-11 12-11s12 5 12 11"/><path d="M12 22h24l-3 7H15z"/><path d="M8 36c4-2 8-3 13-3h9c2 0 3-2 1-3l-6-1M8 36l4 6"/></svg></span><b data-i18n="s4">x</b><span data-i18n="s4t">x</span></li></ol>
   </div>
 </section>
 
 <!-- ===== Aus unserem Ofen ===== -->
 <section class="trio" id="spezial">
   <div class="wrap">
-    <p class="eyebrow rv" data-i18n="e1">Dafür kommen unsere Gäste</p>
-    <h2 class="rv" data-i18n="h2a">Drei Dinge, die man bei uns probieren muss</h2>
+    <p class="eyebrow" data-i18n="e1">Dafür kommen unsere Gäste</p>
+    <h2 data-i18n="h2a">Drei Dinge, die man bei uns probieren muss</h2>
     <div class="cards rv" data-settle>
       <article class="card">
         <svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="36" rx="27" ry="17" fill="#DE9A47"/><ellipse cx="32" cy="34" rx="24" ry="14" fill="#F0B866"/><g fill="#FFF7EC"><ellipse cx="22" cy="31" rx="2" ry="1.1"/><ellipse cx="31" cy="27" rx="2" ry="1.1"/><ellipse cx="40" cy="31" rx="2" ry="1.1"/><ellipse cx="27" cy="38" rx="2" ry="1.1"/><ellipse cx="37" cy="38" rx="2" ry="1.1"/></g></svg>
@@ -422,7 +402,7 @@ footer b{color:var(--flour)}
             <div class="item"><div class="nm" data-i18n="m8">Falafel-Teller</div><div class="ds" data-i18n="m8d">Falafel mit Beilagen und Salat</div></div>
           </div>
         </div>
-        <div class="pricenote rv"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;margin-top:2px" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg><span data-i18n-html="pnote"><b>Preise folgen.</b> Die vollständige Karte mit Preisen ergänzen wir mit dem Inhaber. Bis dahin: einfach anrufen unter 055 210 70 05.</span></div>
+        <p class="pricenote rv"><span data-i18n="pline">Aktuelle Preise im Laden oder am Telefon:</span> <a href="tel:+41552107005">055 210 70 05</a></p>
       </div>
     </div>
   </div>
@@ -511,7 +491,10 @@ footer b{color:var(--flour)}
   var T = {
     de:{brandsub:"Kebap · Rapperswil",kicker:"Halsgasse 28 · Altstadt",h1:'Döner im Brot, <em>das wir selbst backen.</em>',
       lede:"Unser Taschenbrot kommt jeden Tag frisch aus dem eigenen Ofen. Dazu Fleisch vom Spiess, frisches Gemüse, Dürüm und Pide.",
-      call:"Anrufen",route:"Route",reviews:"1 280 Bewertungen",daily:"Täglich geöffnet",fresh:"Frisch gebacken. Jeden Tag.",
+      call:"Anrufen",route:"Route",reviews:"1 280 Bewertungen",daily:"Täglich geöffnet",fresh:"Frisch gebacken – heute, ",
+      ki:"KI-Bild",alt:"Frisch gebackenes Fladenbrot mit Sesam auf dem Ofenstein",
+      crafth:"Vom Teig bis in Ihre Hand – alles hier in der Halsgasse 28",
+      s1:"Teig",s1t:"Von Hand gemacht, im Haus.",s2:"Ofen",s2t:"Im eigenen Ofen gebacken.",s3:"Spiess",s3t:"Fleisch frisch geschnitten, knackiges Gemüse.",s4:"Ihre Hand",s4t:"Warm über die Theke.",
       e1:"Dafür kommen unsere Gäste",h2a:"Drei Dinge, die man bei uns probieren muss",
       c1h:"Hausgemachtes Brot",c1p:"Taschenbrot aus dem eigenen Ofen, täglich frisch. Aussen knusprig, innen weich.",c1m:"35× als hausgemacht gelobt",
       c2h:"Döner vom Spiess",c2p:"Frisch vom Spiess geschnitten, mit knackigem Gemüse und Sauce – im Brot oder als Dürüm.",c2m:"330× in Bewertungen erwähnt",
@@ -523,7 +506,7 @@ footer b{color:var(--flour)}
       m3:"Dürüm",m3d:"Fleisch vom Spiess und Gemüse, im dünnen Fladen gerollt",
             m5:"Pide",m5d:"Türkisches Schiffchen, frisch gebacken",m6:"Pizza",
       m7:"Kebap-Teller",m7d:"Fleisch vom Spiess mit Beilagen und Salat",m8:"Falafel-Teller",m8d:"Falafel mit Beilagen und Salat",
-      pnote:"<b>Preise folgen.</b> Die vollständige Karte mit Preisen ergänzen wir mit dem Inhaber. Bis dahin: einfach anrufen unter 055 210 70 05.",
+      pline:"Aktuelle Preise im Laden oder am Telefon:",
       e3:"Öffnungszeiten",h2c:"Jeden Tag offen",subc:"Unter der Woche Mittag und Abend, am Wochenende durchgehend.",
       hnote:"Feiertage können abweichen – im Zweifel kurz anrufen.",
       e4:"Was Gäste sagen",cnt:"Bewertungen auf Google",glink:"Alle Bewertungen ansehen",
@@ -538,7 +521,10 @@ footer b{color:var(--flour)}
       todayH:"Heute ",lang:"Sprache"},
     en:{brandsub:"Kebab · Rapperswil",kicker:"Halsgasse 28 · Old Town",h1:'Döner in bread <em>we bake ourselves.</em>',
       lede:"Our pocket bread comes fresh out of our own oven every day. With meat from the spit, fresh vegetables, dürüm and pide.",
-      call:"Call us",route:"Directions",reviews:"1,280 reviews",daily:"Open every day",fresh:"Freshly baked. Every day.",
+      call:"Call us",route:"Directions",reviews:"1,280 reviews",daily:"Open every day",fresh:"Freshly baked – today, ",
+      ki:"AI image",alt:"Freshly baked flatbread with sesame on the oven stone",
+      crafth:"From dough to your hand – all made here at Halsgasse 28",
+      s1:"Dough",s1t:"Made by hand, in house.",s2:"Oven",s2t:"Baked in our own oven.",s3:"Spit",s3t:"Meat carved fresh, crunchy vegetables.",s4:"Your hand",s4t:"Handed over warm.",
       e1:"Why our guests come back",h2a:"Three things you have to try here",
       c1h:"Homemade bread",c1p:"Pocket bread from our own oven, fresh every day. Crisp outside, soft inside.",c1m:"Praised 35× as homemade",
       c2h:"Döner from the spit",c2p:"Carved fresh from the spit, with crunchy vegetables and sauce – in bread or as a dürüm.",c2m:"Mentioned 330× in reviews",
@@ -550,7 +536,7 @@ footer b{color:var(--flour)}
       m3:"Dürüm",m3d:"Meat from the spit and vegetables, rolled in thin flatbread",
             m5:"Pide",m5d:"Turkish boat-shaped flatbread, freshly baked",m6:"Pizza",
       m7:"Kebab plate",m7d:"Meat from the spit with sides and salad",m8:"Falafel plate",m8d:"Falafel with sides and salad",
-      pnote:"<b>Prices coming soon.</b> We are adding the full menu with prices together with the owner. Until then, just call 055 210 70 05.",
+      pline:"Current prices in the shop or by phone:",
       e3:"Opening hours",h2c:"Open every day",subc:"Lunch and evening on weekdays, all day at the weekend.",
       hnote:"Hours may differ on public holidays – if in doubt, give us a quick call.",
       e4:"What guests say",cnt:"reviews on Google",glink:"See all reviews",
@@ -610,6 +596,8 @@ footer b{color:var(--flour)}
   }
   function apply(){
     var t=T[lang];
+    document.getElementById('freshTxt').textContent=t.fresh+t.days[zurichNow().d];
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){var k=el.getAttribute('data-i18n-alt');if(t[k]!=null)el.alt=t[k]});
     document.documentElement.lang=lang;
     document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(t[k]!=null)el.textContent=t[k]});
     document.querySelectorAll('[data-i18n-html]').forEach(function(el){var k=el.getAttribute('data-i18n-html');if(t[k]!=null)el.innerHTML=t[k]});
@@ -621,24 +609,18 @@ footer b{color:var(--flour)}
   }
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.lang;try{localStorage.setItem('ist-lang',lang)}catch(e){}apply()})});
 
-  // Sesam
-  var g=document.getElementById('seeds'),ns='http://www.w3.org/2000/svg',seed=7;
-  function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
-  var n=0;
-  for(var i=0;i<400&&n<46;i++){
-    var x=120+rnd()*360,y=104+rnd()*240,dx=(x-301)/182,dy=(y-224)/124;
-    if(dx*dx+dy*dy>0.9) continue;
-    var e=document.createElementNS(ns,'ellipse');
-    e.setAttribute('cx',x.toFixed(1));e.setAttribute('cy',y.toFixed(1));e.setAttribute('rx','5.2');e.setAttribute('ry','2.6');
-    e.setAttribute('fill',rnd()>.25?'#FFF3DC':'#F3D9A8');e.setAttribute('class','seed');
-    e.setAttribute('transform','rotate('+Math.round(rnd()*180)+' '+x.toFixed(1)+' '+y.toFixed(1)+')');
-    e.style.animationDelay=(1.35+n*0.018).toFixed(3)+'s';
-    var wrap=document.createElementNS(ns,'g');wrap.appendChild(e);g.appendChild(wrap);n++;
-  }
+  // Dampf noch einmal: Hover oder Antippen, erst wenn fertig gebacken
+  var oven=document.querySelector('.oven'),puffT=0,ns,root=document.documentElement;
+  function puff(){ if(!root.classList.contains('ready')) return; var now=Date.now(); if(now-puffT<2600) return; puffT=now;
+    oven.classList.remove('puff'); void oven.offsetWidth; oven.classList.add('puff'); }
+  oven.addEventListener('mouseenter',puff); oven.addEventListener('click',puff);
   var root=document.documentElement,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   setTimeout(function(){root.classList.add('go')},40);
   setTimeout(function(){root.classList.add('baked')},reduce?0:2300);
   setTimeout(function(){root.classList.add('ready')},reduce?0:3000);
+  var stp=document.getElementById('steps');
+  setTimeout(function(){stp.classList.add('lit')},reduce?0:2600);
+  setTimeout(function(){stp.classList.add('settled')},reduce?0:4600);
 
   // Reveal – einmal, auch bei schnellem Scrollen
   var rv=[].slice.call(document.querySelectorAll('.rv, #week, .rating'));
