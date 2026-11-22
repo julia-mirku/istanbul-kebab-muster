@@ -97,6 +97,13 @@ h1{margin:0}
 @keyframes logoglint{0%{transform:translateX(0) skewX(-16deg)}42%,100%{transform:translateX(1700px) skewX(-16deg)}}
 .still .logo .glint{display:none}
 @media (prefers-reduced-motion:reduce){.logo .glint{animation:none;display:none}}
+/* Eine echte Gästestimme im ersten Block: klein, unter der Google-Zeile, mit feiner goldener Linie */
+.hq{margin:14px 0 0;padding:1px 0 1px 13px;border-left:2px solid var(--gold);max-width:26em;text-shadow:none}
+.hq blockquote{margin:0;font-style:italic;font-size:15.5px;line-height:1.4;color:#F3E6D2}
+.hq figcaption{margin-top:3px;font-size:13px;font-weight:600;color:#D9C9B4}
+.hq .st{color:var(--star);letter-spacing:1px;margin-right:4px}
+@media (max-width:620px){.hq{margin-top:12px}.hq blockquote{font-size:14.5px}}
+@media (orientation:landscape) and (max-height:520px){.hq{display:none}}
 .wares{display:inline-flex;align-items:center;gap:.7em;margin-top:18px;font-size:clamp(13px,1.25vw,16px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);text-shadow:none}
 .wares i{width:7px;height:7px;border-radius:50%;background:var(--terra);flex:none}
 .claim{display:block;margin-top:18px;font-family:var(--f-t);font-weight:700;font-size:clamp(21px,2.3vw,30px);line-height:1.2;color:#fff}
@@ -474,6 +481,7 @@ html :focus:not(:focus-visible){outline:none}
         <a class="gchip" href="https://www.google.com/maps/search/?api=1&query=Istanbul+Kebap+Halsgasse+28+Rapperswil" target="_blank" rel="noopener"><span>Google</span> <b>4,8</b> <span class="st" aria-hidden="true">★★★★★</span> <span data-i18n="reviews">1 280 Bewertungen</span></a>
         <span class="status" id="heroStatus"><span class="dot"></span><span class="txt dual-i">Täglich geöffnet</span></span>
       </div>
+      <figure class="hq"><blockquote lang="de">«Super Kebab mit selbst gemachtem Taschenbrot – einfach lecker!»</blockquote><figcaption><span class="st" aria-hidden="true">★★★★★</span> Milena G. · <span data-i18n="hqsrc">Google-Bewertung</span></figcaption></figure>
     </div>
   </div>
   <div class="stage" id="stage">
@@ -640,7 +648,7 @@ html :focus:not(:focus-visible){outline:none}
   var T = {
     de:{hello:"Halsgasse 28 · Altstadt Rapperswil",claim:'Kebab im Taschenbrot, <em>das wir selbst backen.</em>',
       n1:"Karte",n2:"Zeiten",n3:"Gäste",n4:"Anfahrt",navAria:"Seite",
-      route:"Route",route2:"Route planen",reviews:"1 280 Bewertungen",warm1:"Ofenwarm",warm:"jeden Tag frisch gebacken",enjoy:"En Guete!",e4:"Was Gäste sagen",
+      hqsrc:"Google-Bewertung",route:"Route",route2:"Route planen",reviews:"1 280 Bewertungen",warm1:"Ofenwarm",warm:"jeden Tag frisch gebacken",enjoy:"En Guete!",e4:"Was Gäste sagen",
       valt:"Aus Mehl wird Teig, aus Teig ein goldenes Brot, gefüllt mit Kebab",
       e1:"Unsere Spezialitäten",h2a:"Dafür kommen unsere Gäste",
       c1h:"Hausgemachtes Brot",c1p:"Aussen knusprig, innen weich – für Kebab, Burger und Falafel.",c1m:"Im Taschenbrot ab CHF 14.50",
@@ -662,7 +670,7 @@ html :focus:not(:focus-visible){outline:none}
       brk:"Pause",allday:"Durchgehend offen",lang:"Sprache",daysAria:"Wochentage"},
     en:{hello:"Halsgasse 28 · Rapperswil Old Town",claim:'Kebab in pocket bread <em>we bake ourselves.</em>',
       n1:"Menu",n2:"Hours",n3:"Reviews",n4:"Find us",navAria:"Page",
-      route:"Route",route2:"Get directions",reviews:"1,280 reviews",warm1:"Oven-warm",warm:"freshly baked every day",enjoy:"Enjoy your meal!",e4:"What guests say",
+      hqsrc:"Google review",route:"Route",route2:"Get directions",reviews:"1,280 reviews",warm1:"Oven-warm",warm:"freshly baked every day",enjoy:"Enjoy your meal!",e4:"What guests say",
       valt:"Flour becomes dough, dough becomes golden bread, filled with kebab",
       e1:"Our specialities",h2a:"Why our guests come back",
       c1h:"Homemade bread",c1p:"Crisp outside, soft inside – for kebab, burgers and falafel.",c1m:"In pocket bread from CHF 14.50",
