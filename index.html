@@ -116,6 +116,16 @@ h1{margin:0}
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 6%,#000 30%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0%,#000 10%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent 0%,transparent 6%,#000 30%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0%,#000 10%,#000 84%,transparent 100%);mask-composite:intersect}
 .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;background:transparent;cursor:pointer}
+.vwrap canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:none}
+.scrollmode .vwrap canvas{display:block}.scrollmode .vwrap video{display:none}
+/* Film / Scroll: zwei Arten, den Brotfilm zu sehen. Scroll = der Kopfteil bleibt stehen, das Brot bäckt mit dem Blättern */
+.fmode{position:absolute;right:7%;top:13%;z-index:3;display:flex;border:1.5px solid rgba(251,243,228,.4);border-radius:999px;padding:3px;background:rgba(31,22,18,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.fmode button{all:unset;cursor:pointer;transition:background-color .2s ease,color .2s ease;min-width:46px;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:5px 9px;color:#D9C9B4;-webkit-user-select:none;user-select:none}
+.fmode button[aria-pressed="true"]{background:var(--cream);color:var(--soot)}
+.fmode button:focus-visible{outline:2px solid var(--terra-hi);outline-offset:2px}
+.nomode .fmode{display:none}
+.scrollmode .pin{height:calc(100vh + 320vh);height:calc(100svh + 320svh)}
+.scrollmode .pin .hero{position:sticky;top:59px}
 .stage .tag{position:absolute;right:7%;bottom:9%;z-index:2;display:inline-flex;align-items:baseline;gap:9px;white-space:nowrap;color:var(--soot);background:var(--cream);border:2px solid var(--soot);border-radius:999px;padding:6px 16px 7px;box-shadow:3px 3px 0 rgba(0,0,0,.5);opacity:0;transform:translateY(6px) rotate(-2deg);transition:opacity .6s ease, transform .6s ease}
 .stage .tag .tr{font-size:19px;color:var(--terra)}
 .stage .tag .gl{font-size:14.5px;font-weight:700}
@@ -139,6 +149,7 @@ h1{margin:0}
   .stage{order:-1;position:relative;top:auto;transform:none;width:100%;max-width:none;aspect-ratio:40/27}
   .vwrap{-webkit-mask-image:linear-gradient(0deg,transparent 0%,#000 20%);-webkit-mask-composite:source-over;mask-image:linear-gradient(0deg,transparent 0%,#000 20%);mask-composite:add}
   .stage .tag{left:16px;right:auto;top:auto;bottom:26px}
+  .fmode{right:12px;top:12px}
   .htxt{padding:0;margin-top:-22px}
   .logo{width:min(52vw,214px)}.wares{margin-top:12px}
   .actions{margin-top:18px}
@@ -454,6 +465,7 @@ html :focus:not(:focus-visible){outline:none}
 
 <main>
 <!-- ===== Erster Bildschirm ===== -->
+<div class="pin" id="pin">
 <section class="hero" id="start" style="padding:0">
   <div class="wrap">
     <div class="htxt">
@@ -470,10 +482,12 @@ html :focus:not(:focus-visible){outline:none}
     </div>
   </div>
   <div class="stage" id="stage">
-    <div class="vwrap"><video id="brotVideo" muted playsinline preload="none" disablepictureinpicture aria-label="Aus Mehl wird Teig, aus Teig ein goldenes Brot, gefüllt mit Kebab" data-i18n-aria="valt"></video></div>
+    <div class="vwrap"><video id="brotVideo" muted playsinline preload="none" disablepictureinpicture aria-label="Aus Mehl wird Teig, aus Teig ein goldenes Brot, gefüllt mit Kebab" data-i18n-aria="valt"></video><canvas id="brotCanvas" width="1280" height="720" aria-hidden="true"></canvas></div>
+    <div class="fmode" id="fmode" role="group" aria-label="Film / Scroll"><button type="button" data-mode="film" aria-pressed="true">Film</button><button type="button" data-mode="scroll" aria-pressed="false">Scroll</button></div>
     <div class="tag"><span class="tr" data-i18n="warm1">Ofenwarm</span><span class="gl" data-i18n="warm">jeden Tag frisch gebacken</span></div>
   </div>
 </section>
+</div>
 
 <!-- ===== Drei Dinge ===== -->
 <section class="trio" id="spezial">
@@ -754,7 +768,7 @@ html :focus:not(:focus-visible){outline:none}
   setTimeout(function(){root.classList.add('ready')},reduce?0:900);
   var small=window.matchMedia('(max-width:620px)').matches&&!window.matchMedia('(orientation:landscape) and (max-height:520px)').matches;
   var base='video/brot_'+(small?'hoch':'quer');
-  var VER='?v=9';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
+  var VER='?v=10';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
   vid.poster=base+'.jpg'+VER;
   var conn=navigator.connection||{},save=!!conn.saveData;
   function tryPlay(){ var p=vid.play(); if(p&&p.catch) p.catch(function(){ if(vid.currentTime===0) showEnd(); finish(); }); }
@@ -764,12 +778,49 @@ html :focus:not(:focus-visible){outline:none}
   vid.addEventListener('click',function(){ if(vid.ended||(vid.paused&&done)){ try{vid.currentTime=0}catch(e){} tryPlay(); } });
   // Ohne Autoplay (Datensparen, weniger Bewegung, Browser lehnt ab): das fertige Brot als Standbild; Antippen spielt den Film
   function showEnd(){ vid.poster=base+'_ende.jpg'+VER; }
-  if(reduce||save){ showEnd(); finish(); vid.preload='none'; vid.src=base+'.mp4'+VER; }
-  else{
+  // ---- Film / Scroll. Film = spielt von selbst (wie bisher). Scroll = dieselben Bilder als Folge auf einer Zeichenfläche, an das Blättern gebunden.
+  var mode='film',mq=/[?&]mode=(film|scroll)/.exec(location.search);
+  try{ var m0=localStorage.getItem('ist-film-mode'); if(m0==='scroll'||m0==='film') mode=m0; }catch(e){}
+  if(mq) mode=mq[1];
+  var canMode=!reduce&&!save&&!!(window.CSS&&CSS.supports&&CSS.supports('position','sticky'));
+  if(!canMode){ mode='film'; root.classList.add('nomode'); }
+  var pin=$('pin'),hero=$('start'),cv=$('brotCanvas'),cx=cv.getContext('2d'),filmStarted=false;
+  var SN=118,SPRE='video/scroll/'+(small?'h':'q')+'_',simg=[],sready=[],sloaded=0,snext=0,scur=-1,sshown=-1,starg=0,sraf=0,sinit=false;
+  if(small){ cv.width=800; cv.height=540; }
+  function sname(i){ var n=String(i+1); while(n.length<3) n='0'+n; return SPRE+n+'.webp'+VER; }
+  function sload(i,cb){ if(simg[i]) return; var im=new Image(); simg[i]=im; im.decoding='async';
+    im.onload=function(){ sready[i]=true; sloaded++; if(cb) cb(); sdraw(); spump(); }; im.onerror=function(){ spump(); }; im.src=sname(i); }
+  function spump(){ var k=0; while(snext<SN&&k<4){ if(!simg[snext]){ sload(snext); k++; } snext++; } }     // der Rest lädt der Reihe nach, wenige gleichzeitig
+  function sbest(i){ for(var d=0;d<SN;d++){ if(sready[i-d]) return i-d; if(sready[i+d]) return i+d; } return -1; }     // noch nicht geladen: das nächste geladene Bild
+  function sdraw(){ if(mode!=='scroll') return; var i=sbest(Math.round(scur<0?starg:scur)); if(i<0||i===sshown) return; sshown=i; cx.drawImage(simg[i],0,0,cv.width,cv.height); }
+  function sprog(){ var r=pin.getBoundingClientRect(),span=pin.offsetHeight-hero.offsetHeight; return span>0?Math.min(1,Math.max(0,(59-r.top)/span)):0; }
+  var sticks=0;
+  function stick(){ sraf=0; sticks++; if(mode!=='scroll') return;
+    if(scur<0) scur=starg; var d=starg-scur; scur=Math.abs(d)<0.05?starg:scur+d*0.28;      // weich nachziehen: kein Ruck bei Mausrad-Stufen
+    sdraw(); if(scur!==starg) sraf=requestAnimationFrame(stick); }
+  function sscroll(){ if(mode!=='scroll') return; var p=sprog(); starg=p*(SN-1);
+    if(p>0.985){ if(!root.classList.contains('baked')) root.classList.add('baked'); } else if(p<0.9) root.classList.remove('baked');
+    if(!sraf){ sraf=requestAnimationFrame(stick); var n0=sticks; setTimeout(function(){ if(sticks===n0&&sraf){ cancelAnimationFrame(sraf); scur=starg; stick(); } },150); } }     // falls der Browser gerade keine Bilder zeichnet (Hintergrund): direkt nachziehen
+  function startFilm(){ if(filmStarted){ try{vid.currentTime=0}catch(e){} tryPlay(); return; } filmStarted=true;
     vid.preload='auto'; vid.src=base+'.mp4'+VER;
     vid.addEventListener('canplaythrough',tryPlay,{once:true});
-    setTimeout(function(){ if(vid.paused&&!vid.ended) finish(); },12000);
+    setTimeout(function(){ if(vid.paused&&!vid.ended) finish(); },12000); }
+  function setMode(m,user){
+    mode=m; root.classList.toggle('scrollmode',m==='scroll');
+    [].forEach.call($('fmode').querySelectorAll('button'),function(b){ b.setAttribute('aria-pressed',b.getAttribute('data-mode')===m?'true':'false'); });
+    if(user){ try{localStorage.setItem('ist-film-mode',m)}catch(e){} }
+    if(m==='scroll'){
+      try{vid.pause()}catch(e){}
+      root.classList.remove('baked'); done=true;      // das Schildchen kommt hier mit dem letzten Bild
+      if(!sinit){ sinit=true; sload(0,function(){ sshown=-1; sdraw(); }); snext=1; spump();
+        window.addEventListener('scroll',sscroll,{passive:true}); window.addEventListener('resize',sscroll); }
+      scur=-1; sshown=-1; sscroll();
+    } else { done=false; root.classList.remove('baked'); startFilm(); }
+    if(user&&typeof check==='function') check();
   }
+  if(reduce||save){ showEnd(); finish(); vid.preload='none'; vid.src=base+'.mp4'+VER; }
+  else setMode(mode,false);
+  [].forEach.call($('fmode').querySelectorAll('button'),function(b){ b.addEventListener('click',function(){ var m=b.getAttribute('data-mode'); if(m!==mode) setMode(m,true); }); });
 
   // ---- Einblenden: einmal, auch bei schnellem Scrollen; Hover erst danach
   var rv=[].slice.call(document.querySelectorAll('.rv, #days, .score'));
