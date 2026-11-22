@@ -754,7 +754,7 @@ html :focus:not(:focus-visible){outline:none}
   setTimeout(function(){root.classList.add('ready')},reduce?0:900);
   var small=window.matchMedia('(max-width:620px)').matches&&!window.matchMedia('(orientation:landscape) and (max-height:520px)').matches;
   var base='video/brot_'+(small?'hoch':'quer');
-  var VER='?v=8';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
+  var VER='?v=9';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
   vid.poster=base+'.jpg'+VER;
   var conn=navigator.connection||{},save=!!conn.saveData;
   function tryPlay(){ var p=vid.play(); if(p&&p.catch) p.catch(function(){ if(vid.currentTime===0) showEnd(); finish(); }); }
