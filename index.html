@@ -136,7 +136,7 @@ h1{margin:0}
 @media (max-width:900px){
   .hero{display:flex;flex-direction:column}
   .hero .wrap{grid-template-columns:1fr;width:100%;min-height:0;padding-bottom:28px;gap:0}
-  .stage{order:-1;position:relative;top:auto;transform:none;width:100%;max-width:none;aspect-ratio:25/18}
+  .stage{order:-1;position:relative;top:auto;transform:none;width:100%;max-width:none;aspect-ratio:40/27}
   .vwrap{-webkit-mask-image:linear-gradient(0deg,transparent 0%,#000 20%);-webkit-mask-composite:source-over;mask-image:linear-gradient(0deg,transparent 0%,#000 20%);mask-composite:add}
   .stage .tag{left:16px;right:auto;top:auto;bottom:26px}
   .htxt{padding:0;margin-top:-22px}
@@ -754,7 +754,7 @@ html :focus:not(:focus-visible){outline:none}
   setTimeout(function(){root.classList.add('ready')},reduce?0:900);
   var small=window.matchMedia('(max-width:620px)').matches&&!window.matchMedia('(orientation:landscape) and (max-height:520px)').matches;
   var base='video/brot_'+(small?'hoch':'quer');
-  var VER='?v=5';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
+  var VER='?v=6';   // bei jedem neuen Film hochzählen, sonst zeigt der Browser den alten aus dem Zwischenspeicher
   vid.poster=base+'.jpg'+VER;
   var conn=navigator.connection||{},save=!!conn.saveData;
   function tryPlay(){ var p=vid.play(); if(p&&p.catch) p.catch(function(){ if(vid.currentTime===0) showEnd(); finish(); }); }
