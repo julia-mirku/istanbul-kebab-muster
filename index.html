@@ -785,7 +785,7 @@ html :focus:not(:focus-visible){outline:none}
   var canMode=!reduce&&!save&&!!(window.CSS&&CSS.supports&&CSS.supports('position','sticky'));
   if(!canMode){ mode='film'; root.classList.add('nomode'); }
   var pin=$('pin'),hero=$('start'),cv=$('brotCanvas'),cx=cv.getContext('2d'),filmStarted=false;
-  var SN=118,SPRE='video/scroll/'+(small?'h':'q')+'_',simg=[],sready=[],sloaded=0,snext=0,scur=-1,sshown=-1,starg=0,sraf=0,sinit=false;
+  var SN=118,SPRE='video/'+(small?'h':'q')+'_',simg=[],sready=[],sloaded=0,snext=0,scur=-1,sshown=-1,starg=0,sraf=0,sinit=false;
   if(small){ cv.width=800; cv.height=540; }
   function sname(i){ var n=String(i+1); while(n.length<3) n='0'+n; return SPRE+n+'.webp'+VER; }
   function sload(i,cb){ if(simg[i]) return; var im=new Image(); simg[i]=im; im.decoding='async';
