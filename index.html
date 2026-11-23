@@ -97,16 +97,6 @@ h1{margin:0}
 @keyframes logoglint{0%{transform:translateX(0) skewX(-16deg)}42%,100%{transform:translateX(1700px) skewX(-16deg)}}
 .still .logo .glint{display:none}
 @media (prefers-reduced-motion:reduce){.logo .glint{animation:none;display:none}}
-/* Eine echte Gästestimme im ersten Block: klein, unter der Google-Zeile, mit feiner goldener Linie */
-.hq{margin:16px 0 0;padding:2px 0 2px 14px;border-left:3px solid var(--gold);max-width:27em;text-shadow:none}
-.hq blockquote{margin:0;font-style:italic;font-weight:500;font-size:16px;line-height:1.42;color:#FFF4DF}
-.hq figcaption{margin-top:3px;font-size:13px;font-weight:600;color:#D9C9B4}
-.hq .st{color:var(--star);letter-spacing:1px;margin-right:4px}
-@media (max-width:620px){.hq{margin-top:12px;padding:1px 0 1px 13px;border-left-width:2px}.hq blockquote{font-size:14.5px;font-weight:400;color:#F3E6D2}}
-@media (orientation:landscape) and (max-height:520px){.hq{display:none}}
-/* niedrige Laptop-Fenster: Abstände enger, damit Stimme und Knöpfe im ersten Bildschirm bleiben (Schriftzug und Film unverändert) */
-@media (min-width:901px) and (max-height:780px){.htxt{padding:14px 0}.hello{margin-bottom:6px}.wares{margin-top:10px}.claim{margin-top:10px}.actions{margin-top:16px;margin-bottom:12px}.hq{margin-top:10px}}
-@media (min-width:901px) and (max-height:740px){.htxt{padding:6px 0}.hello{margin-bottom:2px}.wares{margin-top:6px}.claim{margin-top:8px}.actions{margin-top:12px;margin-bottom:8px}.hq{margin-top:8px}}
 .wares{display:inline-flex;align-items:center;gap:.7em;margin-top:18px;font-size:clamp(13px,1.25vw,16px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);text-shadow:none}
 .wares i{width:7px;height:7px;border-radius:50%;background:var(--terra);flex:none}
 .claim{display:block;margin-top:18px;font-family:var(--f-t);font-weight:700;font-size:clamp(21px,2.3vw,30px);line-height:1.2;color:#fff}
@@ -542,7 +532,6 @@ html :focus:not(:focus-visible){outline:none}
         <a class="gchip" href="https://www.google.com/maps/search/?api=1&query=Istanbul+Kebap+Halsgasse+28+Rapperswil" target="_blank" rel="noopener"><span>Google</span> <b>4,8</b> <span class="st" aria-hidden="true">★★★★★</span> <span data-i18n="reviews">1 283 Bewertungen</span></a>
         <span class="status" id="heroStatus"><span class="dot"></span><span class="txt dual-i">Täglich geöffnet</span></span>
       </div>
-      <figure class="hq"><blockquote lang="de">«Super Kebab mit selbst gemachtem Taschenbrot – einfach lecker!»</blockquote><figcaption><span class="st" aria-hidden="true">★★★★★</span> Milena G. · <span data-i18n="hqsrc">Google-Bewertung</span></figcaption></figure>
     </div>
   </div>
   <div class="stage" id="stage">
