@@ -404,13 +404,43 @@ button.rb{cursor:pointer}
 .chip{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;text-align:center;min-height:98px;background:#fff;border:1.5px solid var(--soot);border-radius:14px;padding:14px 8px 12px;font-size:15px;font-weight:600;line-height:1.25;transition:background-color .25s ease,transform .25s ease,box-shadow .25s ease}
 .chip b{font-family:var(--f-d);font-weight:400;font-size:28px;line-height:1;color:var(--turq)}
 .src{font-size:13.5px;color:var(--muted);margin:12px 0 0}
-/* Fenster mit einer echten Gästestimme: gleiche Kachel wie die Stichworte (weiss, dunkler Rand, gleiche Rundung) */
-.gvoice{margin:16px 0 0;background:#fff;border:1.5px solid var(--soot);border-radius:14px;padding:16px 20px 15px;display:grid;gap:7px;transition:transform .25s ease,box-shadow .25s ease}
-.gvoice .gv-st{color:var(--star);letter-spacing:3px;font-size:18px;line-height:1}
-.gvoice blockquote{margin:0;font-family:var(--f-d);font-weight:400;font-size:clamp(19px,1.9vw,24px);line-height:1.25;color:var(--soot)}
-.gvoice figcaption{font-size:14.5px;font-weight:600;color:var(--muted)}
-@media (hover:hover){.thanks.settled .gvoice:hover{transform:translateY(-2px);box-shadow:3px 4px 0 var(--soot)}}
-@media (max-width:620px){.gvoice{padding:14px 16px 13px}.gvoice blockquote{font-size:19px}}
+/* Gästestimmen auf Papiertüten mit Stempel: echte Google-Bewertungen, wörtlich. Die Reihe lässt sich seitlich schieben (Finger, Pfeile, Tastatur). */
+.tbar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:46px}
+.tbar .gloss{max-width:none}
+.tnav{display:flex;gap:8px;flex:none}
+.tb{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--soot);background:#fff;color:var(--soot);display:grid;place-items:center;padding:0;cursor:pointer;-webkit-user-select:none;user-select:none;transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease,opacity .2s ease}
+.tb svg{width:18px;height:18px}
+.tb:disabled{opacity:.3;cursor:default}
+.tb:active:not(:disabled){background:#F8EBDD}
+@media (hover:hover){.tb:not(:disabled):hover{background:#FFF4DC;transform:translateY(-2px);box-shadow:3px 3px 0 var(--soot)}}
+.tueten{--pad:max(20px,calc((100% - 1160px)/2 + 20px));display:flex;gap:22px;align-items:stretch;overflow-x:auto;overflow-y:hidden;padding:24px var(--pad) 36px;scroll-padding-inline:var(--pad);scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tueten::-webkit-scrollbar{display:none}
+.tuete{flex:0 0 clamp(250px,23vw,284px);display:flex;margin:0;scroll-snap-align:start;opacity:0;transform:translateY(28px) rotate(calc(var(--r)*3));filter:drop-shadow(0 2px 0 rgba(42,29,23,.3)) drop-shadow(0 12px 11px rgba(42,29,23,.15));transition:opacity .5s ease calc(var(--i)*80ms),transform .75s cubic-bezier(.2,.9,.3,1.25) calc(var(--i)*80ms)}
+.tueten.in .tuete{opacity:1;transform:rotate(var(--r))}
+.tueten.settled .tuete{transition:transform .28s ease}
+@media (hover:hover){.tueten.settled .tuete:hover{transform:translateY(-7px) rotate(0deg)}}
+.tp{position:relative;flex:1;display:flex;flex-direction:column;min-height:318px;padding:14px 20px 16px;color:var(--soot);
+  background:linear-gradient(90deg,rgba(96,58,22,.17),rgba(96,58,22,0) 7%,rgba(96,58,22,0) 93%,rgba(96,58,22,.17)),repeating-linear-gradient(91deg,rgba(110,70,30,.055) 0 1px,rgba(110,70,30,0) 1px 6px),linear-gradient(178deg,#ECD6AE,#E1C596 55%,#D8B884);
+  -webkit-mask:conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50% 0/14px 100%;mask:conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50% 0/14px 100%}
+.tp::before{content:"";position:absolute;left:0;right:0;top:0;height:40px;background:linear-gradient(180deg,rgba(96,58,22,.08),rgba(96,58,22,.17));border-bottom:1px solid rgba(96,58,22,.4);box-shadow:0 4px 5px -3px rgba(60,35,10,.5)}
+.tp figcaption{position:relative;order:-1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;min-height:96px;padding:46px 0 0 106px;font-size:13.5px;font-weight:500;color:#5A4636;line-height:1.3}
+.tp figcaption b{font-size:16.5px;font-weight:700;color:var(--soot)}
+.stempel{position:absolute;left:14px;top:10px;width:96px;height:96px;color:var(--terra-dk);transform:rotate(var(--sr));mix-blend-mode:multiply;opacity:.88}
+.stempel text{fill:currentColor;font-family:var(--f-t)}
+.stempel .s-rund{font-size:12.5px;font-weight:700}
+.stempel .s-zahl{font-family:var(--f-d);font-size:31px}
+.stempel .s-sterne{font-size:10.5px;letter-spacing:.5px}
+.tp blockquote{position:relative;margin:16px 0 18px;font-size:15.5px;line-height:1.5;font-weight:500}
+.tp blockquote.kurz{font-family:var(--f-d);font-weight:400;font-size:21px;line-height:1.24}
+.tlogo{display:block;width:92px;height:auto;margin:auto auto 0;opacity:.5;filter:brightness(.5) saturate(.7);mix-blend-mode:multiply}
+.leer{margin:18px 0}.leer i{display:block;height:10px;border-radius:5px;background:rgba(96,58,22,.17);margin:0 0 12px}.leer i.k{width:56%}
+.leer-n{display:block;width:96px;height:13px;border-radius:6px;background:rgba(96,58,22,.24)}
+.tprog{width:132px;height:3px;border-radius:2px;background:rgba(42,29,23,.15);overflow:hidden}
+.tprog i{display:block;height:100%;width:40%;border-radius:2px;background:var(--terra)}
+.tprog.aus{visibility:hidden}.tnav.aus{visibility:hidden}
+@media (max-width:620px){.tbar{margin-top:36px}.tnav{display:none}.tueten{gap:14px;padding-top:20px;padding-bottom:30px;scroll-snap-type:x mandatory}.tuete{flex-basis:min(78vw,300px)}.tprog{margin:0 auto}}
+.still .tueten .tuete{opacity:1;transform:rotate(var(--r))}
+@media (prefers-reduced-motion:reduce){.tueten .tuete{transition:none}}
 .glink{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--soot);font-weight:700;text-decoration:none;border-bottom:2px solid rgba(180,83,42,.45);padding-bottom:2px;transition:border-color .25s ease}
 @media (hover:hover){.settled .glink:hover{border-color:var(--terra);color:var(--terra)}.settled .chip:hover{background:#FFF4DC;transform:translateY(-2px);box-shadow:3px 3px 0 var(--soot)}
   .settled .score .big:hover{transform:translateY(-2px)}}
@@ -646,9 +676,17 @@ html :focus:not(:focus-visible){outline:none}
         <span class="chip"><b>13×</b><span data-i18n="p4">Pide</span></span>
       </div>
       <p class="src" data-i18n="src">So oft nennen Gäste diese Stichworte in Google-Bewertungen (Stand November 2026).</p>
-      <figure class="gvoice"><div class="gv-st" role="img" aria-label="5 von 5">★★★★★</div><blockquote lang="de">«Super Kebab mit selbst gemachtem Taschenbrot – einfach lecker!»</blockquote><figcaption>Milena G. · <span data-i18n="hqsrc">Google-Bewertung</span></figcaption></figure>
     </div>
   </div>
+  <div class="wrap tbar">
+    <p class="gloss" data-i18n="tt">Gäste im Wortlaut:</p>
+    <div class="tnav">
+      <button type="button" class="tb tprev" aria-label="Zurück" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="tb tnext" aria-label="Weiter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="tueten" id="tueten" data-settle="1500" tabindex="0" role="group" aria-label="Google-Bewertungen"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="stp" d="M60 60 m-42 0 a42 42 0 1 1 84 0 a42 42 0 1 1 -84 0"/></defs></svg><figure class="tuete" style="--r:-1.6deg;--i:0"><div class="tp"><svg class="stempel" viewBox="0 0 120 120" role="img" aria-label="5 von 5 Sternen" style="--sr:-12deg"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="31" fill="none" stroke="currentColor" stroke-width="1.5"/><text class="s-rund" textLength="262" lengthAdjust="spacing"><textPath href="#stp">GOOGLE MAPS ✦ GOOGLE MAPS ✦ </textPath></text><text class="s-zahl" x="60" y="62" text-anchor="middle">5</text><text class="s-sterne" x="60" y="78" text-anchor="middle">★★★★★</text></svg><blockquote lang="de" class="kurz">«Super Kebab mit selbst gemachtem Taschenbrot – einfach lecker!»</blockquote><figcaption><b>Milena G.</b></figcaption><svg class="tlogo" viewBox="30 300 965 390" aria-hidden="true"><use href="#logo-w"/></svg></div></figure></div>
+  <div class="wrap"><div class="tprog" aria-hidden="true"><i></i></div></div>
 </section>
 
 <!-- ===== Anfahrt ===== -->
@@ -710,7 +748,7 @@ html :focus:not(:focus-visible){outline:none}
   var T = {
     de:{hello:"Halsgasse 28 · Altstadt Rapperswil",claim:'Kebab im Taschenbrot, <em>das wir selbst backen.</em>',
       n1:"Karte",n2:"Zeiten",n3:"Gäste",n4:"Anfahrt",navAria:"Seite",
-      hqsrc:"Google-Bewertung",route:"Route",route2:"Route planen",reviews:"1 283 Bewertungen",warm1:"Ofenwarm",warm:"jeden Tag frisch gebacken",enjoy:"En Guete!",e4:"Was Gäste sagen",
+      hqsrc:"Google-Bewertung",route:"Route",route2:"Route planen",reviews:"1 283 Bewertungen",warm1:"Ofenwarm",warm:"jeden Tag frisch gebacken",enjoy:"En Guete!",e4:"Was Gäste sagen",tt:"Gäste im Wortlaut:",
       valt:"Aus Mehl wird Teig, aus Teig ein goldenes Brot, gefüllt mit Kebab",
       e1:"Unsere Spezialitäten",h2a:"Dafür kommen unsere Gäste",
       c1h:"Hausgemachtes Brot",c1p:"Aussen knusprig, innen weich – für Kebab, Burger und Falafel.",c1m:"Im Taschenbrot ab CHF 14.50",
@@ -732,7 +770,7 @@ html :focus:not(:focus-visible){outline:none}
       brk:"Pause",allday:"Durchgehend offen",lang:"Sprache",daysAria:"Wochentage"},
     en:{hello:"Halsgasse 28 · Rapperswil Old Town",claim:'Kebab in pocket bread <em>we bake ourselves.</em>',
       n1:"Menu",n2:"Hours",n3:"Reviews",n4:"Find us",navAria:"Page",
-      hqsrc:"Google review",route:"Route",route2:"Get directions",reviews:"1,283 reviews",warm1:"Oven-warm",warm:"freshly baked every day",enjoy:"Enjoy your meal!",e4:"What guests say",
+      hqsrc:"Google review",route:"Route",route2:"Get directions",reviews:"1,283 reviews",warm1:"Oven-warm",warm:"freshly baked every day",enjoy:"Enjoy your meal!",e4:"What guests say",tt:"In guests’ own words:",
       valt:"Flour becomes dough, dough becomes golden bread, filled with kebab",
       e1:"Our specialities",h2a:"Why our guests come back",
       c1h:"Homemade bread",c1p:"Crisp outside, soft inside – for kebab, burgers and falafel.",c1m:"In pocket bread from CHF 14.50",
@@ -848,8 +886,27 @@ html :focus:not(:focus-visible){outline:none}
     setTimeout(function(){ if(vid.paused&&!vid.ended) finish(); },12000);
   }
 
+  // ---- Gästestimmen: Reihe der Papiertüten seitlich schieben (Pfeile; Finger und Tastatur gehen von selbst)
+  (function(){
+    var tr=document.getElementById('tueten'); if(!tr) return;
+    var pv=document.querySelector('.tprev'),nx=document.querySelector('.tnext'),nav=document.querySelector('.tnav'),bar=document.querySelector('.tprog'),pg=bar&&bar.firstElementChild;
+    function hop(dir){
+      var b=tr.querySelector('.tuete'); if(!b) return;
+      var cs=getComputedStyle(tr),w=b.offsetWidth+(parseFloat(cs.columnGap)||20),n=Math.max(1,Math.floor((tr.clientWidth-2*(parseFloat(cs.paddingLeft)||20)+ (parseFloat(cs.columnGap)||20))/w));
+      tr.scrollBy({left:dir*n*w,behavior:reduce?'auto':'smooth'});
+    }
+    function upd(){
+      var max=tr.scrollWidth-tr.clientWidth,x=tr.scrollLeft,f=tr.clientWidth/tr.scrollWidth;
+      if(pv){pv.disabled=x<4; nx.disabled=x>max-4;}
+      if(nav) nav.classList.toggle('aus',max<4);
+      if(bar){bar.classList.toggle('aus',max<4); pg.style.width=(f*100)+'%'; pg.style.transform='translateX('+(max>0?(x/max)*(1/f-1)*100:0)+'%)';}
+    }
+    if(pv){pv.addEventListener('click',function(){hop(-1)}); nx.addEventListener('click',function(){hop(1)});}
+    tr.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); window.addEventListener('load',upd); upd();
+  })();
+
   // ---- Einblenden: einmal, auch bei schnellem Scrollen; Hover erst danach
-  var rv=[].slice.call(document.querySelectorAll('.rv, #days, .score'));
+  var rv=[].slice.call(document.querySelectorAll('.rv, #days, .score, #tueten'));
   function settle(el,ms){ setTimeout(function(){el.classList.add('settled')},reduce?0:(ms||+el.getAttribute('data-settle')||700)); }
   function show(el){
     if(el.classList.contains('in')) return; el.classList.add('in');
