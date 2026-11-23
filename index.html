@@ -414,6 +414,13 @@ button.rb{cursor:pointer}
 .chip{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;text-align:center;min-height:98px;background:#fff;border:1.5px solid var(--soot);border-radius:14px;padding:14px 8px 12px;font-size:15px;font-weight:600;line-height:1.25;transition:background-color .25s ease,transform .25s ease,box-shadow .25s ease}
 .chip b{font-family:var(--f-d);font-weight:400;font-size:28px;line-height:1;color:var(--turq)}
 .src{font-size:13.5px;color:var(--muted);margin:12px 0 0}
+/* Fenster mit einer echten Gästestimme: gleiche Kachel wie die Stichworte (weiss, dunkler Rand, gleiche Rundung) */
+.gvoice{margin:16px 0 0;background:#fff;border:1.5px solid var(--soot);border-radius:14px;padding:16px 20px 15px;display:grid;gap:7px;transition:transform .25s ease,box-shadow .25s ease}
+.gvoice .gv-st{color:var(--star);letter-spacing:3px;font-size:18px;line-height:1}
+.gvoice blockquote{margin:0;font-family:var(--f-d);font-weight:400;font-size:clamp(19px,1.9vw,24px);line-height:1.25;color:var(--soot)}
+.gvoice figcaption{font-size:14.5px;font-weight:600;color:var(--muted)}
+@media (hover:hover){.thanks.settled .gvoice:hover{transform:translateY(-2px);box-shadow:3px 4px 0 var(--soot)}}
+@media (max-width:620px){.gvoice{padding:14px 16px 13px}.gvoice blockquote{font-size:19px}}
 .glink{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--soot);font-weight:700;text-decoration:none;border-bottom:2px solid rgba(180,83,42,.45);padding-bottom:2px;transition:border-color .25s ease}
 @media (hover:hover){.settled .glink:hover{border-color:var(--terra);color:var(--terra)}.settled .chip:hover{background:#FFF4DC;transform:translateY(-2px);box-shadow:3px 3px 0 var(--soot)}
   .settled .score .big:hover{transform:translateY(-2px)}}
@@ -650,6 +657,7 @@ html :focus:not(:focus-visible){outline:none}
         <span class="chip"><b>13×</b><span data-i18n="p4">Pide</span></span>
       </div>
       <p class="src" data-i18n="src">So oft nennen Gäste diese Stichworte in Google-Bewertungen (Stand November 2026).</p>
+      <figure class="gvoice"><div class="gv-st" role="img" aria-label="5 von 5">★★★★★</div><blockquote lang="de">«Super Kebab mit selbst gemachtem Taschenbrot – einfach lecker!»</blockquote><figcaption>Milena G. · <span data-i18n="hqsrc">Google-Bewertung</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -876,6 +884,7 @@ html :focus:not(:focus-visible){outline:none}
       function f(v){return v>=1000?Math.floor(v/1000)+' '+('00'+(v%1000)).slice(-3):''+v}
       function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=f(v);if(p<1)requestAnimationFrame(step);else el.innerHTML=dual('1\u00a0283','1,283')}
       requestAnimationFrame(step);
+      setTimeout(function(){el.innerHTML=dual('1\u00a0283','1,283')},dur+700);   // falls das Fenster im Hintergrund lag und der Zähler stehen blieb: Endwert sicher setzen
     });
   }
 
